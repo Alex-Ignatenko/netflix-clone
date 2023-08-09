@@ -27,14 +27,26 @@
 }
 
 .signup-header {
-    height: 5rem;
-    position: fixed;
-    margin: 0 1rem;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: fit-content;
+    margin-left: 0.5rem;
+    z-index: 999;
 }
-.signup-header img{
-    width: 200px;
+
+.signup-img-container{
+    display: flex;
+    align-items: center;
+    height: 5rem;
+}
+
+.logo-img{
+    margin-left: 2rem;
+    width: 10rem;
+    object-fit: contain;
+    padding-top: 0.72rem;
 }
 
 .signup-form{
@@ -64,24 +76,13 @@
         }
     }
 
-
-
     button{
+        
         height: 100%;
         width: 15%;
         font-size: 1.5rem;
         font-weight: 900;
-        background-color: #E50914;
-        color: white;
         max-width: 300px;
-        transition: box-shadow 0.1s ease-in-out, scale 0.2s ease-in-out;
-        box-shadow: none;
-        scale: 1;
-
-        &:hover{
-            box-shadow: 3px 3px 3px #292929;
-            scale: 1.02;
-        }
 
         @include tablet{
             background-color: blue;
@@ -97,6 +98,15 @@
     font-size:large;
     font-weight: 200;
     margin: 5px;
+    color: darken($color: white, $amount: 20%);
+    a {
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration:underline;
+    }
 }
 
 

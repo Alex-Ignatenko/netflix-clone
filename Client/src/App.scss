@@ -1,20 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@800&display=swap');
+
+$primary-color: #E50914;
+$secondary-color: #0961e5;
+
 *{
 margin: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
+
+html{
+  height: 100%;
+}
+
+body{
+  background-color: #202020;
+}
+
+.my-main-app-container{
+  min-height: 100vh;
+}
+
+
 input{
   border: 0;
   border-radius: 0.25rem;
 }
+
 button{
   border: 0;
   border-radius: 0.25rem;
-}
-button{
+  background-color: $primary-color;
+  color: white;
+  transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out, scale 0.2s ease-in-out;
+  box-shadow: none;
+  scale: 1;
   cursor: pointer;
+
+  &:hover{
+    box-shadow: 3px 3px 3px #292929;
+    scale: 1.02;
+    background-color: darken($primary-color, 5);
+  }
+
 }
+
 
 @mixin tablet {
   @media (max-width: 860px) {@content;}

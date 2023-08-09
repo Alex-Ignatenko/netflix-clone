@@ -1,0 +1,124 @@
+.my-navbar-container{   
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+    color: white;
+    height: fit-content;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    transition: background-color 0.35s ease-in-out;
+
+    &.scrolled {
+        background-color: #101010;
+      }
+
+      a {
+        color: white;
+        font-weight: 400;
+        text-decoration: none; 
+
+        &:hover{
+            color: darken($color: #fff, $amount: 15%);
+        }
+        &.active {
+            font-weight: 800;     
+        }
+     }   
+
+        .my-icon{
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+
+        .my-left-side-container{
+            display: flex;
+            align-items:center;
+            gap: 2rem;
+            margin-left: 0.5rem;
+
+            img {
+                margin-left: 2rem;
+                width: 10rem;
+            }
+
+            .left-side-links-container{
+                display: flex;
+                align-items:center;
+                gap: 1.5rem;
+
+                .my-link-container{
+                    display: flex;
+                    align-items:center;
+                    gap: 0.5rem;
+                }
+            }
+        }
+
+    .my-right-side-container{
+        display: flex;
+        align-items:center;
+        font-size: large;
+        margin-right: 3rem;
+        height: 6rem;
+        
+        .my-search-container{
+            display: flex;
+            align-items:center;
+            justify-content:flex-end ;
+            gap: 0.5rem;
+            margin-right: 3rem;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+            padding-right: 0.35rem;
+            padding-left: 0.35rem;
+            width: 30rem;
+            transition: border 0.5s ease;
+            border: none;
+
+
+            &.shown{
+                transition: width 0.5s ease;
+                border: rgb(200, 200, 200) solid 2px;
+                border-radius: 12px;  
+            }
+
+            .my-search-input{
+                background-color: transparent;
+                color: white;
+                outline: none;
+                font-size:large;
+                text-indent: 0.75rem;
+                transition: width 0.3s ease;
+                width: 0%;
+
+                &.shown{
+                    transition: width 0.3s ease;
+                    width: 90%;  
+                }
+            }
+
+        }
+
+
+        .my-account-container{
+            display: flex;
+            align-items:center;
+            gap: 0.5rem;
+            margin-left: 0.5rem;
+
+            .my-arrow-icon-span{
+                transition: transform 0.3s;
+                font-size: 1.5rem;
+
+                &:hover{
+                    transform: rotate(0.5turn);
+                }
+            }
+        }   
+    }
+}
+
+
