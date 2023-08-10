@@ -1,0 +1,128 @@
+@import "../../App.scss";
+
+.my-featured-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+
+    .my-feature-dits-container{
+
+        //background-color: rgb(25, 233, 233);
+        height: 40%;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-bottom: 1rem;
+
+        .my-featured-title-img-container{
+            //background-color: aquamarine;
+            height: 40%;
+
+            display: flex;
+            justify-content:flex-start;
+            align-items: end;
+            margin-left: -1.2rem;
+            
+
+            img {
+                height: 100%;
+                width: auto ;
+                padding-left: 2rem;
+            }
+        }
+
+        .my-featured-desc-container{
+            // background-color: #121212;
+            // opacity: 30%;
+            height: auto;
+            width: 50%;
+
+            display: flex;
+            justify-content:flex-start;
+            align-items: start;
+
+            p{
+                color: white;
+                font-size: large;
+                font-weight: 400;
+                overflow-wrap: break-word;
+                padding: 2rem;
+            }
+        }
+
+        .my-featured-btn-container{
+            //background-color: aquamarine;
+            height: 20%;
+
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+
+            .my-featured-btn-left-container{
+                //background-color: rgb(0, 0, 0);
+                height: 100%;
+                width: 40%;
+
+                display: flex;
+                justify-content: flex-start;
+                padding-left: 1rem;
+
+            }
+
+            .my-featured-btn-right-container{
+                //background-color: rgb(0, 0, 0);
+                height: 100%;
+                width: 40%;
+
+                display: flex;
+                justify-content: flex-end;
+
+                button{
+                    background-color: transparent;
+                    border: ghostwhite 2px solid;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50px;
+                }
+                .my-age-box{
+                    background-color:rgb(18,18,18,0.65);
+                    color: white;
+                    height: 50px;
+                    width: 20%;
+                    border-left: 3px solid white;
+                    display: flex;
+                    align-items: center;
+                    margin-left: 0.7rem;
+
+                    p{
+                        padding-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+button{
+    height: 50px;
+    width: 30%;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-left: 1rem;
+}
+
+.my-button-secondry{
+    background-color: $secondary-color;
+
+    &:hover{
+      background-color: darken($secondary-color, 5);
+    }
+}

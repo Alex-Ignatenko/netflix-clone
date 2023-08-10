@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@800&display=swap');
 
 $primary-color: #E50914;
-$secondary-color: #0961e5;
+$secondary-color: #484d55;
 
 *{
 margin: 0;
@@ -10,15 +10,12 @@ margin: 0;
 }
 
 html{
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 body{
   background-color: #202020;
-}
-
-.my-main-app-container{
-  min-height: 100vh;
 }
 
 
