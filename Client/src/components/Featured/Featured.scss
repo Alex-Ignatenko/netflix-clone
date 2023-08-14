@@ -91,6 +91,7 @@
                     justify-content: center;
                     align-items: center;
                     width: 50px;
+                    box-shadow: none;
                 }
                 .my-age-box{
                     background-color:rgb(18,18,18,0.65);
@@ -112,11 +113,20 @@
 }
 
 button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     height: 50px;
     width: 30%;
     font-size: 1.5rem;
     font-weight: 900;
     margin-left: 1rem;
+
+    .btn-icon{
+        font-size: larger;
+        padding-bottom: 2px;
+    }
 }
 
 .my-button-secondry{
