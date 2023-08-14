@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import seedRouter  from './Routes/seedRoutes.js';
 import userRouter from './Routes/userRoute.js';
+import contentRouter from './Routes/contentRoute.js';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/seed/resetData" , seedRouter)
 app.use("/api/users" , userRouter)
+app.use("/api/content" , contentRouter)
 
 mongoose.connect(process.env.MONGO_DB_URI).then(() => {
     app.listen(PORT);

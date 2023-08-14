@@ -4,13 +4,8 @@ import React from 'react'
 const Featured = ({content}) => {
   
   return (
-    <div className="my-featured-container" 
-        style={{
-            backgroundImage: `url(${content.img})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-        }}
-    >
+    <div className="my-featured-container">
+        <img className="bg-img" src={content.img}></img>
         <div className="my-feature-dits-container">
             <div className="my-featured-title-img-container">
                 <img src={content.imgTitle}></img>
