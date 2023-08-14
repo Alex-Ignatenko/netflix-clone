@@ -66,8 +66,8 @@
             display: flex;
             justify-content: end;
             align-items:center;
-            font-size: large;
-            gap:2rem;
+            // font-size: large;
+            gap:0.5rem;
             width: 80%;
             height: 6rem;
             
@@ -77,11 +77,10 @@
                 justify-content:flex-end ;
                 padding-top: 0.25rem;
                 padding-bottom: 0.25rem;
-                padding-left: 0.25rem;
                 transition: border 0.5s ease;
                 border: none;
-                width: 90%;
-                gap: 1.5rem;
+                width: 70%;
+
 
                 &.shown{
 
@@ -90,22 +89,25 @@
                     border-radius: 12px;  
                 }
 
+                .my-icon{
+                    padding-right: 1rem;
+                }
+
                 .my-search-input{
                     background-color: transparent;
                     color: white;
                     outline: none;
-                    font-size:large;
+                    font-size:18px;
                     text-indent: 0.75rem;
                     transition: width 0.3s ease;
                     width: 0%;
-                    gap:0.5rem;
+                    gap:0.25rem;
 
                     &.shown{
                         transition: width 0.3s ease;
                         width: 90%;  
                     }
                 }
-
             }
 
 
@@ -126,15 +128,16 @@
         }
 
         @include tablet{
-            font-size: 14px;
-            padding-top: 2%;
+            font-size: larger;
+            padding-top: 3%;
             flex-direction: column;
             align-items: start;
 
-            .my-right-side-container{
-                justify-content: end;
+            .my-right-side-container{ 
+                justify-content: start;
                 width: max-content;
-                gap: 1.5rem;
+                gap: 6.2rem;
+
             }
 
             .my-icon{
@@ -143,6 +146,8 @@
 
             .my-search-container{
                 width: 100%;
+                margin: -1rem;
+                padding-left: 0.5rem;
 
                 .my-search-input{
                     &.shown{
@@ -154,11 +159,24 @@
         }
 
         @include mobile{
-            .my-right-side-container{
-                // padding-bottom: 5%;
-                // padding-top: 0.5rem;    
+            font-size: large;
+            .my-right-side-container{ 
+                gap: 5.5rem;
+
             }
+            .my-search-container{
+                width: 100%;
+                margin: -0.5rem;
+                padding-left: 0.15rem;
+
+                .my-search-input{
+                    &.shown{
+                        width: 90%;  
+                    }
+                }
+            } 
         }
+    
 }
 
 
