@@ -11,7 +11,7 @@ const Header = () => {
   const [isSearchShown, setisSearchShown] = useState(false);
   const [isUserMenue, setIsUserMenue] = useState(false);
   const [isContentMenue, setIsContentMenue] = useState(false);
-  const [windowResize, setWindowResize] = useState(0);
+  const [windowResize, setWindowResize] = useState(window.innerWidth);
   const {userInfo, dispatch} = useContext(authContext);
 
 

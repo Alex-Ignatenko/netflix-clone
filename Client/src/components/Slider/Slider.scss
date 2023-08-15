@@ -1,33 +1,63 @@
 @import "../../App.scss";
 
-
 .slider-container{
     display: flex;
-    padding: 10px 55px;
-    height: 35%;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 0.5%;
+    height: 20vh;
+
     color: white;
 
-    .slider-item {
-        background: $primary-color;
-        flex: 0 0 19.7%;
-        text-align: center;
-        margin: 0 2px;
-        height: 50%;
-        transition: transform 300ms ease 100ms;
+    h2{
+        margin: 0.5%;  
     }
 }
 
-.slider-container:hover .slider-item {
-    transform: translateX(-25%);
+.slider-sub-container{
+    height: 18vh;
+    
+    button{
+        background-color:rgb(18,18,18,0.65);
+        height: 15vh;
+        width: 2%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .react-multiple-carousel__arrow--left {
+        left: 0;
+        margin: 0;
+    }
+
+    .react-multiple-carousel__arrow--right {
+        right: 0;
+
+    }
 }
 
 
-.slider-item:hover ~ .slider-item {
-    transform: translateX(25%);
- }
+.slider-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-color;
+    height: 15vh;
+    margin-right: 0.25vw;
+    color: white;
+}
+
+// .slider-item:hover ~ .slider-item {
+//     transform: translateX(25%);
+//  }
 
  
-.slider-item:hover {
-    transform: scale(1.5) !important;
-  }
+// .slider-item:hover {
+//     // position: relative;
+//     // z-index: 999;
+//     transform: scale(2) !important;
+//     background-color: royalblue;
+// }
 
+// .slider-sub-container:hover .slider-item {
+//     transform: translateX(-25%);
+// }
