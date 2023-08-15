@@ -19,9 +19,6 @@ const Featured = ({content}) => {
                     <button className="my-button-secondry"><span class="material-symbols-outlined btn-icon">info</span>Info</button>
                 </div>
                 <div className="my-featured-btn-right-container">
-                    <button>
-                        <span class="material-symbols-outlined">refresh</span>
-                    </button>
                     <div className="my-age-box"><p>+{content.limit}</p></div>
                 </div>
             </div>
@@ -31,3 +28,4 @@ const Featured = ({content}) => {
 }
 
 export default Featured
+

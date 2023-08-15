@@ -17,8 +17,15 @@
     z-index: 999;
     transition: background-color 0.35s ease-in-out;
 
+
     &.scrolled {
         background-color: #121212;
+
+        .userDropdown, .contentDropdown{   
+            background-color: #121212 !important;
+        }
+
+
       }
 
       a {
@@ -45,8 +52,17 @@
             gap: 2rem;
             width: 100vw;
 
+            @include mobile{
+                gap: 0.5rem;
+            }
+
             img {
                 width: 10rem;
+            
+                @include mobile{
+                    width: 6rem;
+                    margin-left: 3px;
+                }
             }
 
             .left-side-links-container{
@@ -54,11 +70,35 @@
                 align-items:center;
                 gap: 1.5rem;
 
+                @include mobile{
+                    gap: 0;
+                }
+
                 .my-link-container{
                     display: flex;
                     align-items:center;
                     gap: 0.5rem;
                 }
+
+                .mobileContentMenu{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .contentDropdown{
+                        background-color:rgb(18,18,18,0.65);
+                        position: fixed;
+                        top: 6rem;
+                        left: 25%;
+                        background-color:rgb(18,18,18,0.65);
+                        transition: background-color 0.35s ease-in-out;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        padding: 1rem;
+                    }
+                }
+
             }
         }
 
@@ -116,67 +156,63 @@
                 align-items:center;
                 gap: 0.5rem;
 
-                .my-arrow-icon-span{
-                    transition: transform 0.3s;
-                    font-size: 1.5rem;
+                .face-icon{
+                    cursor: default;
+                }
 
-                    &:hover{
-                        transform: rotate(0.5turn);
+
+                .userDropdown{
+                    position: fixed;
+                    top: 6rem;
+                    right: 0;
+                    background-color:rgb(18,18,18,0.65);
+                    transition: background-color 0.35s ease-in-out;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 1rem;
+
+                    a {
+                        cursor: pointer;
                     }
                 }
             }   
         }
 
         @include tablet{
-            font-size: larger;
-            padding-top: 3%;
-            flex-direction: column;
-            align-items: start;
-
             .my-right-side-container{ 
                 justify-content: start;
                 width: max-content;
-                gap: 6.2rem;
-
             }
 
             .my-icon{
-                font-size: 100%;
-            }
-
-            .my-search-container{
-                width: 100%;
-                margin: -1rem;
-                padding-left: 0.5rem;
-
-                .my-search-input{
-                    &.shown{
-                        width: 90%;  
-                    }
-                }
-                
+                font-size: 2rem;
             }
         }
 
         @include mobile{
-            font-size: large;
-            .my-right-side-container{ 
-                gap: 5.5rem;
 
+            .my-icon{
+                font-size: 1.5rem;
             }
-            .my-search-container{
-                width: 100%;
-                margin: -0.5rem;
-                padding-left: 0.15rem;
 
-                .my-search-input{
-                    &.shown{
-                        width: 90%;  
-                    }
-                }
-            } 
+            //  flex-direction: column;
+            //  align-items: start;
+            // .my-right-side-container{ 
+            //     gap: 5.5rem;
+
+            // }
         }
     
 }
 
+
+.my-arrow-icon-span{
+    transition: transform 0.3s;
+    font-size: 1.5rem;
+
+    &:hover{
+        transform: rotate(0.5turn);
+    }
+}
 

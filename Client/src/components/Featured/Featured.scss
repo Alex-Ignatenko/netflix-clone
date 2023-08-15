@@ -3,30 +3,26 @@
 .my-featured-container{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: start;
     
     width: 100vw;
     max-width: 100%;
-    height: 100vh;
+    height: 90vh;
 
     .bg-img{
-        position: absolute;
-        top:0;
-        bottom: 0;
-        right: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         z-index: -1;
+        object-fit: cover;
     }
     .my-feature-dits-container{
-
+        position: absolute;
         //background-color: rgb(25, 233, 233);
-        height: 40%;
+        height: 100vh;
         width: 100vw;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content:end;
 
         .my-featured-title-img-container{
             //background-color: aquamarine;
@@ -39,13 +35,18 @@
             img {
                 width: 380px;
                 padding-left: 2rem;
+
+
+                @include mobile{
+                    width: 50vw;
+                    padding-bottom: 2rem;
+                }
             }
         }
 
         .my-featured-desc-container{
             // background-color: aquamarine;
             width: 50%;
-
             display: flex;
             justify-content:flex-start;
             align-items: start;
@@ -53,11 +54,24 @@
             p{
                 color: white;
                 font-size: large;
+                // overflow-wrap: break-word;
                 font-weight: 700;
-                overflow-wrap:normal;
-                padding: 2rem;
-            }
+                //padding: 2rem;
+                margin: 20px;
 
+                @include mobile{
+                    // font-size: medium;
+                    // outline: red 1px solid;
+                    // overflow: hidden;
+                    // text-overflow: hidden;
+                    // display: -webkit-box;
+                    // -webkit-line-clamp: 3;
+                    // line-clamp: 3;
+                    // -webkit-box-orient: vertical;
+                    // // padding-bottom: 15rem;
+                    display: none;   
+                }
+            }
         }
 
         .my-featured-btn-container{
@@ -87,16 +101,16 @@
                 display: flex;
                 justify-content: flex-end;
 
-                button{
-                    background-color: transparent;
-                    border: ghostwhite 2px solid;
-                    border-radius: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 50px;
-                    box-shadow: none;
-                }
+                // button{
+                //     background-color: transparent;
+                //     border: ghostwhite 2px solid;
+                //     border-radius: 50%;
+                //     display: flex;
+                //     justify-content: center;
+                //     align-items: center;
+                //     width: 50px;
+                //     box-shadow: none;
+                // }
                 .my-age-box{
                     background-color:rgb(18,18,18,0.65);
                     color: white;
@@ -105,10 +119,12 @@
                     border-left: 3px solid white;
                     display: flex;
                     align-items: center;
+                    padding-left: 0.225rem;
+                
+                    @include mobile{
+                        width: 35%;     
+                    }   
 
-                    p{
-                        padding-left: 0.5rem;
-                    }
                 }
             }
         }
@@ -125,6 +141,14 @@ button{
     font-size: 1.5rem;
     font-weight: 900;
     margin-left: 1rem;
+    //padding-left: 0.25rem;
+
+    @include mobile{  
+        height: 30%;  
+        font-size: large;
+        margin: 0.15rem;
+        padding: 0.5rem;
+    }
 
     .btn-icon{
         font-size: larger;
@@ -142,9 +166,15 @@ button{
 
 
 
-@media only screen and (max-width: 860px) {
-    .my-featured-desc-container {
-        width: 100% !important;
-    }
+// @media only screen and (max-width: 860px) {
+//     .my-featured-desc-container {
+//             overflow: hidden;
+//             text-overflow: ellipsis;
+//             display: -webkit-box;
+//             -webkit-line-clamp: 4;
+//             line-clamp: 4;
+//             -webkit-box-orient: vertical;
+//             padding-bottom: 2px;
+//     }
 
-  }
+//   }

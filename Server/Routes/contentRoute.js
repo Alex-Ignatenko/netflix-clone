@@ -31,7 +31,7 @@ contentRouter.get('/random',isAuth,expressAsyncHandler(async (req, res) => {
       const type = req.query.type;
       let content;
       try {
-        if (type === 'series') {
+        if (type === 'tvshows') {
           content = await Content.aggregate([
             { $match: { isSeries: true } },
             { $sample: { size: 1 } },

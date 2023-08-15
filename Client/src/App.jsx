@@ -20,6 +20,8 @@ function App() {
           <Route path="/" element={<SignupPage />} />
           <Route path="/signin" element={<SigninPage/>} />
           <Route path="/browse" element={<BrowsePage/>} />
+          <Route path="/movies" element={<BrowsePage type={"movies"}/>} />
+          <Route path="/tvshows" element={<BrowsePage type={"tvshows"}/>} />
         </Routes>
         </main>
         <Footer/>
