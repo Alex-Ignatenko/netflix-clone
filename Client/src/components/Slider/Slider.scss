@@ -1,6 +1,6 @@
 @import "../../App.scss";
 
-.slider-container{
+.slider-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -8,48 +8,43 @@
     height: 20vh;
     color: white;
 
-    h2{
+
+    h2 {
         margin: 0.5%;  
     }
 
     outline: 1px solid royalblue;
 }
 
-.slider-sub-container{
+.slider-sub-container {
     width: 100%;
-    overflow: visible;
+    height: 80%;
+    overflow: visible; /* Change overflow to 'hidden' */
     outline: 1px solid royalblue;
+    position: relative; /* Create a stacking context */
 
-    .slider-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-        background: $primary-color;
-        height: 11rem;
-        margin-right: 0.25vw;
-        color: white;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
 
-        transition: scale 0.3s ease-in-out;
-        scale: 1;
+        li {
+            height: 100%;
+            
+
+
+        }
     }
 
-    .slider-item:hover {
-        position: relative;
-        z-index: 999;
-        scale: 1.5;
-        background-color: royalblue;
-      }
-
-    button{
-        background-color:rgb(18,18,18,0.65);
-        height: 15vh;
+    button {
+        background-color: rgba(18, 18, 18, 0.65);
+        height: 100%;
         width: 2%;
         border-radius: 0;
         box-shadow: none;
     }
+
     .react-multiple-carousel__arrow--left {
         left: 0;
         margin: 0;
@@ -57,29 +52,10 @@
 
     .react-multiple-carousel__arrow--right {
         right: 0;
-
     }
 
     outline: 1px solid royalblue;
+
+
 }
 
-
-
-
-// .active-slide {
-//     z-index: -1;
-//     // transform: scale(1.5);
-//     scale: 1.5;
-//     background-color: royalblue;
-// }
-
-// .slider-item:hover ~ .slider-item {
-//     z-index: 999;
-//  }
-
- 
-
-
-// .slider-sub-container:hover .slider-item {
-//     transform: translateX(-25%);
-// }
