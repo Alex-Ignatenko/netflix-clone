@@ -6,8 +6,7 @@
 }
 
 .mySwiper {
-    // padding-top: 1rem;
-     margin-top: 1rem;
+    margin-top: 0.5rem;
 
     h1 {
         color: #fff;
@@ -26,9 +25,7 @@
 
 .swiper-slide {
     text-align: center;
-    // font-size: 18px;
     background: #fff;
-    // height: 100%;
     width: 100%;
     border-radius: 7px;
 
@@ -67,8 +64,7 @@
 
     img{
         height: 101%;
-        width: 101%;
-        
+        width: 101%; 
         border-radius: 5px;
     }
 }

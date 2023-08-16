@@ -46,16 +46,16 @@ const MySwiper = ({type , title}) => {
       slidesPerView={6}
       slidesPerGroup={4}
       navigation
-      pagination={{ clickable: true }}
+      // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}>
         {contents.map((content) => (
-              <SwiperSlide>
-                <div className='slide-item-container'>
-                  <img src={content.imgThumb} />
-                </div>
-              </SwiperSlide>
+            <SwiperSlide>
+              <div className='slide-item-container'>
+                <img src={content.imgThumb} />
+              </div>
+            </SwiperSlide>
         ))}
       </Swiper>
     </div>
