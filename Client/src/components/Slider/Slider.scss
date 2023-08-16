@@ -6,17 +6,43 @@
     justify-content: flex-end;
     margin-top: 0.5%;
     height: 20vh;
-
     color: white;
 
     h2{
         margin: 0.5%;  
     }
+
+    outline: 1px solid royalblue;
 }
 
 .slider-sub-container{
-    height: 18vh;
-    
+    width: 100%;
+    overflow: visible;
+    outline: 1px solid royalblue;
+
+    .slider-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        background: $primary-color;
+        height: 11rem;
+        margin-right: 0.25vw;
+        color: white;
+
+        transition: scale 0.3s ease-in-out;
+        scale: 1;
+    }
+
+    .slider-item:hover {
+        position: relative;
+        z-index: 999;
+        scale: 1.5;
+        background-color: royalblue;
+      }
+
     button{
         background-color:rgb(18,18,18,0.65);
         height: 15vh;
@@ -33,30 +59,26 @@
         right: 0;
 
     }
+
+    outline: 1px solid royalblue;
 }
 
 
-.slider-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $primary-color;
-    height: 15vh;
-    margin-right: 0.25vw;
-    color: white;
-}
+
+
+// .active-slide {
+//     z-index: -1;
+//     // transform: scale(1.5);
+//     scale: 1.5;
+//     background-color: royalblue;
+// }
 
 // .slider-item:hover ~ .slider-item {
-//     transform: translateX(25%);
+//     z-index: 999;
 //  }
 
  
-// .slider-item:hover {
-//     // position: relative;
-//     // z-index: 999;
-//     transform: scale(2) !important;
-//     background-color: royalblue;
-// }
+
 
 // .slider-sub-container:hover .slider-item {
 //     transform: translateX(-25%);
