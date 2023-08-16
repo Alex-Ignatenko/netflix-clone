@@ -1,0 +1,81 @@
+@import "../../App.scss";
+
+.slider-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 0.5%;
+    height: 20vh;
+    color: white;
+
+    h2{
+        margin: 0.5%;  
+    }
+
+    outline: 1px solid royalblue;
+}
+
+.slider-sub-container{
+
+    height: 80%;
+    overflow: visible;
+    outline: 1px solid royalblue;
+
+    ul {
+
+        height: 100%;
+
+        li {
+
+            height: 100%;
+            
+            .slider-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                margin-right: 0.25vw;
+
+                background: $primary-color;
+                color: white;
+        
+                transition: scale 0.3s ease-in-out;
+                scale: 1;
+        
+                z-index: 1 !important;
+            }
+        
+            .slider-item:hover {
+                z-index: 999 !important;
+                scale: 2;
+                background-color: royalblue;
+              }
+        }
+    }
+
+    button{
+        background-color:rgb(18,18,18,0.65);
+        height: 100%;
+        width: 2%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .react-multiple-carousel__arrow--left {
+        left: 0;
+        margin: 0;
+    }
+
+    .react-multiple-carousel__arrow--right {
+        right: 0;
+
+    }
+
+    outline: 1px solid royalblue;
+}
+
+
+
+
+
+
+

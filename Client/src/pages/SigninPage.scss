@@ -1,3 +1,5 @@
+@import "../App.scss";
+
 .signin-card{
     background-color: rgba(0,0,0,.75);
     border-radius: 10px;
@@ -46,16 +48,6 @@
             width: 100%;
             font-size: 1.5rem;
             font-weight: 900;
-            background-color: #E50914;
-            color: white;
-            transition: box-shadow 0.1s ease-in-out, scale 0.2s ease-in-out;
-            box-shadow: none;
-            scale: 1;
-    
-            &:hover{
-                box-shadow: 3px 3px 3px #292929;
-                scale: 1.02;
-            }
         }
     }
     .signin-card-footer{
@@ -64,12 +56,22 @@
             font-size:large;
             font-weight: 200;
             margin: 15px;
+            color: darken($color: white, $amount: 20%);
+            a {
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+              }
+              a:hover {
+                text-decoration:underline;
+              }
         }
 
         .captcha-p{
             font-size:medium;
             font-weight: 100;
             margin: 15px;
+
         }
     }
 }
