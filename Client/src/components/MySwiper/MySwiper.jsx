@@ -13,7 +13,6 @@ const MySwiper = ({type , title}) => {
 
   const [contents, setContents] = useState([]);
 
-
   useEffect(() => {
     const getList = async () => {
       try {    
@@ -35,52 +34,30 @@ const MySwiper = ({type , title}) => {
    
   }, [type]);
 
+
+
   return (
     <div className="mySwiper">
       <h1>{title}</h1>
       <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={10}
-      slidesPerView={4}
+      spaceBetween={8}
+      slidesPerView={6}
       slidesPerGroup={4}
       navigation
-      // pagination={{ clickable: true }}
+      pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-
-      >
-
+      onSlideChange={() => console.log('slide change')}>
         {contents.map((content) => (
-        <SwiperSlide>
-          <img src={content.imgThumb} />
-        </SwiperSlide>
+              <SwiperSlide>
+                <div className='slide-item-container'>
+                  <img src={content.imgThumb} />
+                </div>
+              </SwiperSlide>
         ))}
-        {/* <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg' />
-        </SwiperSlide> */}
       </Swiper>
-        {/* <div className='swiper-button-next'>next</div>
-        <div className='swiper-button-prev'>prev</div> */}
     </div>
   )
 }
