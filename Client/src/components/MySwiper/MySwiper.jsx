@@ -42,9 +42,30 @@ const MySwiper = ({type , title}) => {
       <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={8}
-      slidesPerView={6}
-      slidesPerGroup={4}
+      breakpoints={{
+        // when window width is >= 576px
+            576: {
+              slidesPerView: 1,
+            },
+        // when window width is >= 768px
+            768: {
+              spaceBetween: 5,
+              slidesPerView: 2,
+            },
+        // when window width is >= 1024px
+            1024: {
+              spaceBetween: 10,
+              slidesPerView: 4,
+            },
+            1280: {
+              spaceBetween: 10,
+              slidesPerGroup: 2,
+              slidesPerView: 6,
+            },
+          }}
+      // spaceBetween={8}
+      // slidesPerView={6}
+      // slidesPerGroup={4}
       navigation
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
