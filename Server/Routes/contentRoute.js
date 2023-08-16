@@ -27,6 +27,31 @@ contentRouter.get('/get/:id',isAuth,expressAsyncHandler(async (req, res) => {
 );
 
 //get random content
+contentRouter.get('/getlist',expressAsyncHandler(async (req, res) => {
+  const type = req.query.type;
+  let contents;
+  try {
+    if (type === 'tvshows') {
+      contents = await Content.aggregate([
+        { $match: { isSeries: true } },
+        { $sample: { size: 8 } },
+      ]);
+    } else if (type === 'movies') {
+      contents = await Content.aggregate([
+        { $match: { isSeries: false } },
+        { $sample: { size: 8 } },
+      ]);
+    } else {
+      contents = await Content.aggregate([{ $sample: { size: 8 } }]);
+    }
+    res.status(200).json(contents);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+})
+);
+
+//get random content
 contentRouter.get('/random',isAuth,expressAsyncHandler(async (req, res) => {
       const type = req.query.type;
       let content;
@@ -51,3 +76,5 @@ contentRouter.get('/random',isAuth,expressAsyncHandler(async (req, res) => {
     })
   );
 export default contentRouter;
+
+// const newList = await Content.aggregate([{ $match: { isSeries: isSeries } },{ $sample: { size: 8 } },]);

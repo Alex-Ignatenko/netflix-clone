@@ -15,8 +15,8 @@ const Featured = ({content}) => {
             </div>
             <div className="my-featured-btn-container">
                 <div className="my-featured-btn-left-container">
-                    <button><span class="material-symbols-outlined btn-icon">play_circle</span>Play</button>
-                    <button className="my-button-secondry"><span class="material-symbols-outlined btn-icon">info</span>Info</button>
+                    <button><span className="material-symbols-outlined btn-icon">play_circle</span>Play</button>
+                    <button className="my-button-secondry"><span className="material-symbols-outlined btn-icon">info</span>Info</button>
                 </div>
                 <div className="my-featured-btn-right-container">
                     <div className="my-age-box"><p>+{content.limit}</p></div>

@@ -48,13 +48,13 @@ const Header = () => {
 
           <>
             <div className='my-link-container'>
-              <span class="material-symbols-outlined my-icon">movie</span>
+              <span className="material-symbols-outlined my-icon">movie</span>
               <NavLink to="/movies">
                 Movies
               </NavLink>
             </div>
             <div className='my-link-container'>
-              <span class="material-symbols-outlined my-icon">tv</span> 
+              <span className="material-symbols-outlined my-icon">tv</span> 
               <NavLink to="/tvshows">
                 TV Shows
               </NavLink>

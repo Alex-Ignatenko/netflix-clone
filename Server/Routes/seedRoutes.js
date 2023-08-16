@@ -24,4 +24,3 @@ seedRouter.get("/", async (req, res) => {
 
 export default seedRouter;
 
-// const newList = await Content.aggregate([{ $match: { isSeries: isSeries } },{ $sample: { size: 8 } },]);
