@@ -4,8 +4,8 @@ import { authContext } from "../context/authContext";
 import axios from 'axios';
 import Header from "../components/Header/Header";
 import Featured from "../components/Featured/Featured";
-import Slider from "../components/Slider/Slider";
 import "./BrowsePage.scss"
+import MySwiper from "../components/MySwiper/MySwiper";
 
 
 const BrowsePage = ({type}) => {
@@ -50,9 +50,12 @@ const BrowsePage = ({type}) => {
       <Header/>
       <main>
         <Featured content = {randomContent}></Featured>
-        <div className="my-slider-container">
+        {/* <div className="my-slider-container">
           <Slider></Slider>
-        </div>
+        </div> */}
+        <MySwiper title='New On Netflix'/>
+        <MySwiper type={type} title='Most Popular'/>
+        <MySwiper type={type} title='Stam'/>
       </main>
     </>
   )

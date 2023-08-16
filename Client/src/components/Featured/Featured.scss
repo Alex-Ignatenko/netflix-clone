@@ -9,7 +9,7 @@
     height: 90vh;
      
     .bg-img{
-        outline : 1px solid red;
+        // outline : 1px solid red;
         width: 100%;
         max-width: 100%;
         height: 100%;
@@ -18,7 +18,7 @@
     }
     .my-feature-dits-container{
         position: absolute;
-        outline : 1px solid red;
+        // outline : 1px solid red;
         //background-color: rgb(25, 233, 233);
         width: 100%;
         display: flex;
@@ -28,7 +28,7 @@
         margin-bottom: 5rem;
 
         .my-featured-title-img-container{
-            outline : 1px solid red;
+            // outline : 1px solid red;
             width: 50%;
             @include mobile{
                 display: flex;
@@ -52,7 +52,7 @@
 
         .my-featured-desc-container{
             //  background-color: aquamarine;
-            outline : 1px solid red;
+            // outline : 1px solid red;
             width: 50%;
             display: flex;
             justify-content:flex-start;
@@ -86,7 +86,7 @@
 
         .my-featured-btn-container{
             // background-color: aquamarine;
-           outline : 1px solid red;
+        //    outline : 1px solid red;
             height: 20%;
 
             display: flex;
