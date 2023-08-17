@@ -1,5 +1,57 @@
 @import "../../App.scss";
 
+.mySwiper {
+
+    h1 {
+        color: #fff;
+        padding-left: 15px;
+        position: relative;
+        top:5rem;
+    }
+}
+
+.swiper {
+    width: 100%;
+}
+
+
+.swiper-wrapper {
+    padding: 6rem 0;
+    position: relative;  
+    z-index: 1;
+}
+
+.swiper-slide {
+    text-align: center;
+    width: 100%;
+    border-radius: 7px;
+
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 250ms all;
+
+    &:hover {
+        transform: scaleX(1.38) scaleY(1.78);
+        z-index: 2;
+        .swiper-button-next,
+        .swiper-button-prev{
+                visibility: hidden;
+            }
+    }
+
+    &:first-child:hover {
+        margin: 0 110px;
+    }
+
+    &:last-child:hover {
+        margin: 0 -110px;
+    }
+}
+
 .disabled_swiper_button {
     opacity: 0;
     cursor: auto;
@@ -36,57 +88,3 @@
     padding-left: 25px;
     padding-right: 35px;
 }
-
-
-.mySwiper {
-    margin-top: 0.5rem;
-    h1 {
-        color: #fff;
-        padding-left: 15px;
-        position: relative;
-        top:6.5rem;
-    }
-}
-
-.swiper {
-    width: 100%;
-}
-
-
-.swiper-wrapper {
-    padding: 7rem 0;
-    position: relative;  
-    z-index: 1;
-}
-
-.swiper-slide {
-    text-align: center;
-    width: 100%;
-    border-radius: 7px;
-
-
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: 250ms all;
-
-    &:hover {
-        transform: scaleX(1.38) scaleY(1.78);
-        z-index: 2;
-        .swiper-button-next,
-        .swiper-button-prev{
-                visibility: hidden;
-            }
-    }
-
-    &:first-child:hover {
-        margin: 0 110px;
-    }
-
-    &:last-child:hover {
-        margin: 0 -110px;
-    }
-}
-
