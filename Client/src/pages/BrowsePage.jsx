@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { authContext } from "../context/authContext";
 import Header from "../components/Header/Header";
 import Featured from "../components/Featured/Featured";
-import "./BrowsePage.scss"
 import Slider from "../components/Slider/Slider";
+import "./BrowsePage.scss"
 
 
 const BrowsePage = ({type}) => {
@@ -21,7 +21,7 @@ const BrowsePage = ({type}) => {
   return (
     <>
       <Header/>
-      <main>
+      <main className="main">
         <Featured type = {type}></Featured>
         <div className="sliders-container">
           <Slider type={type} title='Recommanded'/>
