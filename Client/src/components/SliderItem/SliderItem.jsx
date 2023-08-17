@@ -1,18 +1,22 @@
 import { useState } from 'react'
 import "./SliderItem.scss"
 
-const SliderItem = () => {
+const SliderItem = ({content}) => {
 
 const [isHover, setIsHover] = useState(false);
   return (
-    <div className={`slider-item ${isHover && "hovered-item"}`}
+    <div className={`slide-item-container`}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
-    <img src='https://collider.com/wp-content/uploads/inception_movie_poster_banner_03.jpg'></img>
-      {isHover && <div >ggfgffggf </div>  }
+      { !isHover ? (
+        <img src={content.imgThumb} />
+      ) : (<span>running</span>)
+      }
     </div>
   );
 };
 
 export default SliderItem;
+
+//${isHover && "hovered-item"}

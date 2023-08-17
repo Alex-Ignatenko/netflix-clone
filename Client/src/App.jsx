@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/signin" element={<SigninPage/>} />
-          <Route path="/browse" element={<BrowsePage/>} />
+          <Route path="/browse" element={<BrowsePage type={" "}/>} />
           <Route path="/movies" element={<BrowsePage type={"movies"}/>} />
           <Route path="/tvshows" element={<BrowsePage type={"tvshows"}/>} />
         </Routes>

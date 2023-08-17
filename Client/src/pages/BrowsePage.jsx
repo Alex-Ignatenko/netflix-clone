@@ -23,7 +23,7 @@ const BrowsePage = ({type}) => {
   useEffect(() => {
     const getRandomContent = async () => {
       try {    
-        let requestedType = type ? '?type=' +  type : '';
+        let requestedType = type ? '?type=' +  type : 'all';
         let path = '/content/random' + requestedType;
         const responce = await axios.get(path, {
           headers: {
@@ -53,9 +53,9 @@ const BrowsePage = ({type}) => {
         {/* <div className="my-slider-container">
           <Slider></Slider>
         </div> */}
-        <MySwiper title='New On Netflix'/>
-        <MySwiper type={type} title='Most Popular'/>
-        <MySwiper type={type} title='Stam'/>
+        <MySwiper title='Recommanded'/>
+        <MySwiper type={type} genre="Action"  title={`Action ${type}`}/>
+        <MySwiper type={type} genre="Comedy" title={`Comedy ${type}`}/>
       </main>
     </>
   )

@@ -52,19 +52,3 @@
 
 
 }
-
-.slide-item-container{
-
-    height: 18vh;
-    width: 100%;
-    border-radius: 7px;
-    & :hover{
-        border-radius: 7px;
-    }
-
-    img{
-        height: 101%;
-        width: 101%; 
-        border-radius: 5px;
-    }
-}

@@ -29,22 +29,33 @@ contentRouter.get('/get/:id',isAuth,expressAsyncHandler(async (req, res) => {
 //get random content
 contentRouter.get('/getlist',expressAsyncHandler(async (req, res) => {
   const type = req.query.type;
-  let contents;
+  const genre = req.query.genre;
+  let contentList = [];
   try {
     if (type === 'tvshows') {
-      contents = await Content.aggregate([
-        { $match: { isSeries: true } },
-        { $sample: { size: 8 } },
-      ]);
+      if (genre){
+        contentList = await Content.aggregate([
+          { $match: { isSeries: true , genre: genre } },{ $sample: { size: 10 } }]);
+      } else {
+        contentList = await Content.aggregate([
+          { $match: { isSeries: true  } },{ $sample: { size: 10 } }]);
+      }
     } else if (type === 'movies') {
-      contents = await Content.aggregate([
-        { $match: { isSeries: false } },
-        { $sample: { size: 8 } },
-      ]);
+            if (genre){
+              contentList = await Content.aggregate([
+                { $match: { isSeries: false, genre: genre } },{ $sample: { size: 10 } },]);
+            }else{
+              contentList = await Content.aggregate([
+                { $match: { isSeries: false } },{ $sample: { size: 10 } },]);
+            }
     } else {
-      contents = await Content.aggregate([{ $sample: { size: 8 } }]);
+      if (genre){
+        contentList = await Content.aggregate([
+          { $match: { genre: genre } },{ $sample: { size: 10 } },]);
+        }else
+          contentList = await Content.aggregate([{ $sample: { size: 10 } }]);
     }
-    res.status(200).json(contents);
+    res.status(200).json(contentList);
   } catch (error) {
     res.status(500).json(error);
   }

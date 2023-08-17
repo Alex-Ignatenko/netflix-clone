@@ -7,17 +7,19 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import "./MySwiper.scss"
 import axios from 'axios';
+import SliderItem from '../SliderItem/SliderItem';
 
 
-const MySwiper = ({type , title}) => {
+const MySwiper = ({type , genre, title}) => {
 
   const [contents, setContents] = useState([]);
 
   useEffect(() => {
     const getList = async () => {
       try {    
-        let requestedType = type ? '?type=' +  type : '';
-        let path = '/content/getlist' + requestedType;
+        let requestedType = type ? '?type=' +  type : '?type=all';
+        let requestedGenre = genre ? '&genre=' +  genre : '';
+        let path = '/content/getlist' + requestedType + requestedGenre;
         const responce = await axios.get(path, {
           // headers: {
           //   authorization: userInfo.token,
@@ -55,17 +57,19 @@ const MySwiper = ({type , title}) => {
         // when window width is >= 1024px
             1024: {
               spaceBetween: 10,
-              slidesPerView: 4,
+              slidesPerView: 3,
             },
             1280: {
               spaceBetween: 10,
               slidesPerGroup: 2,
-              slidesPerView: 6,
+              slidesPerView: 4,
             },
+            1480: {
+              spaceBetween: 10,
+              slidesPerGroup: 3,
+              slidesPerView: 6,
+            }
           }}
-      // spaceBetween={8}
-      // slidesPerView={6}
-      // slidesPerGroup={4}
       navigation
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
@@ -73,9 +77,7 @@ const MySwiper = ({type , title}) => {
       onSlideChange={() => console.log('slide change')}>
         {contents.map((content) => (
             <SwiperSlide>
-              <div className='slide-item-container'>
-                <img src={content.imgThumb} />
-              </div>
+              <SliderItem content = {content}/>
             </SwiperSlide>
         ))}
       </Swiper>
