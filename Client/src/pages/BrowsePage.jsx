@@ -23,18 +23,17 @@ const BrowsePage = ({type}) => {
       <Header/>
       <main>
         <Featured type = {type}></Featured>
-        {/* <div className="my-slider-container">
-          <Slider></Slider>
-        </div> */}
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} title='Recommanded'/>
-        <Slider type={type} genre="Action"  title={`Action ${type}`}/>
+        <div className="sliders-container">
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} title='Recommanded'/>
+          <Slider type={type} genre="Action"  title={`Action ${type}`}/>
+        </div>
       </main>
     </>
   )

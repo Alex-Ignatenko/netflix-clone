@@ -42,7 +42,7 @@ const Slider = ({type , genre, title}) => {
 
 
   return (
-    <div className="mySwiper">
+    <div className="slider-container">
       <h1>{title}</h1>
       <Swiper
       // install Swiper modules
@@ -59,7 +59,7 @@ const Slider = ({type , genre, title}) => {
             },
         // when window width is >= 1024px
             1024: {
-              spaceBetween: 10,
+              spaceBetween: 8,
               slidesPerView: 3,
             },
             1280: {
@@ -68,7 +68,7 @@ const Slider = ({type , genre, title}) => {
               slidesPerView: 4,
             },
             1480: {
-              spaceBetween: 10,
+              spaceBetween: 12,
               slidesPerGroup: 3,
               slidesPerView: 6,
             }
