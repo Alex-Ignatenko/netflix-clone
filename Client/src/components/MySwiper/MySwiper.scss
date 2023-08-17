@@ -16,7 +16,7 @@
 
 
 .swiper-wrapper {
-    padding: 3.7rem 0;
+    padding: 4rem 0;
     position: relative;  
     z-index: 1;
 }
@@ -36,7 +36,7 @@
 
     &:hover {
         // transform: scaleX(1.39) scaleY(1.78);
-        transform: scaleX(1.125) scaleY(1.5);
+        transform: scaleX(1.135) scaleY(1.55);
         z-index: 2;
         .swiper-button-next,
         .swiper-button-prev{
