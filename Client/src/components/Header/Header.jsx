@@ -105,7 +105,7 @@ const Header = () => {
           {
             isUserMenue ? (
               <div className="userDropdown">
-                <a onClick={signOutHandler}>Log out</a>
+                <a onClick={signOutHandler}><span class="material-symbols-outlined my-icon">logout</span> Log out</a>
               </div>) : (<></>)
           }
         </div>

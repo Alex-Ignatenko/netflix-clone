@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import ReactPlayer from 'react-player'
 import "./SliderItem.scss"
+import { useNavigate } from 'react-router-dom';
 
 const SliderItem = ({content}) => {
 
 const [isHover, setIsHover] = useState(false);
 const [isPlaying, setIsPlaying] = useState(false);
+
+const navigate = useNavigate();
 
   return (
     <div className={`slide-item-container`}
@@ -36,7 +39,7 @@ const [isPlaying, setIsPlaying] = useState(false);
                 <span className="material-symbols-outlined btn-icon">add_circle</span>
               </div>
               <div className="btn-col2">
-                <span className="material-symbols-outlined btn-icon">info</span>
+                <span className="material-symbols-outlined btn-icon" onClick={() =>navigate(`/info/${content._id}`)}>info</span>
               </div>
             </div>
             <div className="detials-row2">
