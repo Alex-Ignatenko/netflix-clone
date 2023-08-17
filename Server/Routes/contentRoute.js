@@ -27,7 +27,7 @@ contentRouter.get('/get/:id',isAuth,expressAsyncHandler(async (req, res) => {
 );
 
 //get random content
-contentRouter.get('/getlist',expressAsyncHandler(async (req, res) => {
+contentRouter.get('/getlist',isAuth,expressAsyncHandler(async (req, res) => {
   const type = req.query.type;
   const genre = req.query.genre;
   let contentList = [];

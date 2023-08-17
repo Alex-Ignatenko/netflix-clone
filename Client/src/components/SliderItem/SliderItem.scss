@@ -1,33 +1,5 @@
 @import "../../App.scss";
 
-// .slider-item {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     width: 300px;
-//     height: 300px;
-//     margin-right: 0.25vw;
-
-//     color: white;
-//     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-//     transform: scale(1);
-//     z-index: -1; /* Set z-index on the original item */
-//     outline: 1px solid rgb(65, 225, 86);
-//     height: 100%;
-//     &.hovered-item{
-//         height: 500px;
-//         // background-color: aqua;
-//         position: absolute;
-//         z-index: 10;
-//         top: -200px;
-//     }
-// }
-
-// img{
-//     height: 100%;
-//     width: 300px;
-//     object-fit: cover;
-// }
 
 
 .slide-item-container{
@@ -40,8 +12,73 @@
     }
 
     img{
-        height: 101%;
-        width: 101%; 
+        height: 100%;
+        width: 100%; 
         border-radius: 5px;
     }
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    height: 18vh;
+    background-color: #222222;
+    
+    .player{
+        height: 65%;
+        .detials-img{
+            border-top-left-radius: 5px;
+            border-top-right-radius:  5px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius:  0px;
+            height: 100%;
+            width: 100%;
+
+        }
+    }
+
+    .detials{
+        height: 3%;
+        color: white;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.75rem;
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+        margin-bottom: 1.25rem;
+        border: 0px solid transparent;
+        border-top-left-radius: 0px;
+        border-top-right-radius:  0px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius:  7px;
+
+        .detials-row1{
+            display: flex;
+            justify-content: space-between;
+
+            .btn-col1{
+                display: flex;
+                gap: 0.25rem;
+            }
+            .btn-col2{
+                display: flex;
+            }
+        }
+        .detials-row2{
+            padding-top: 0.5rem;
+            display: flex;
+            font-size: 14px;
+            gap: 0.75rem;
+            color: rgb(152, 151, 151);
+        }
+
+    }
+}
+
+
+.btn-icon{
+    font-size: 28px;
+    cursor: pointer;
+    padding-bottom: 2px;
 }

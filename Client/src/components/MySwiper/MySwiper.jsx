@@ -1,18 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import SliderItem from '../SliderItem/SliderItem'
 import { Pagination , Navigation , Scrollbar , A11y} from 'swiper/modules';
+import { authContext } from "../../context/authContext";
+import axios from 'axios';
+import SliderItem from '../SliderItem/SliderItem';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import "./MySwiper.scss"
-import axios from 'axios';
-import SliderItem from '../SliderItem/SliderItem';
+
 
 
 const MySwiper = ({type , genre, title}) => {
 
   const [contents, setContents] = useState([]);
+  const {userInfo, dispatch} = useContext(authContext);
 
   useEffect(() => {
     const getList = async () => {
@@ -21,9 +23,9 @@ const MySwiper = ({type , genre, title}) => {
         let requestedGenre = genre ? '&genre=' +  genre : '';
         let path = '/content/getlist' + requestedType + requestedGenre;
         const responce = await axios.get(path, {
-          // headers: {
-          //   authorization: userInfo.token,
-          // },
+          headers: {
+            authorization: userInfo.token,
+          },
         });
         if (responce){
           setContents(responce.data);
@@ -70,7 +72,10 @@ const MySwiper = ({type , genre, title}) => {
               slidesPerView: 6,
             }
           }}
-      navigation
+      navigation={{
+        // nextEl: '.swiper-button-next',
+        // prevEl: '.swiper-button-prev',
+        disabledClass: 'disabled_swiper_button'}}    
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}

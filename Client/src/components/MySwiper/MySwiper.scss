@@ -1,16 +1,50 @@
 @import "../../App.scss";
 
-.swiper-button-prev:after,
+.disabled_swiper_button {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+}
+.swiper-button-prev,
+.swiper-button-next {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .swiper-button-prev:hover, 
+  .swiper-button-next:hover {
+    opacity: 1;
+  }
+
+.swiper-button-prev:after{
+    color: #fff;
+    background-color:rgb(18,18,18,0.65);
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    padding-right: 25px;
+
+}
+
 .swiper-button-next:after {
     color: #fff;
+    background-color:rgb(18,18,18,0.65);
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 35px;
 }
+
 
 .mySwiper {
     margin-top: 0.5rem;
-
     h1 {
         color: #fff;
         padding-left: 15px;
+        position: relative;
+        top:6.5rem;
     }
 }
 
@@ -20,12 +54,13 @@
 
 
 .swiper-wrapper {
-    padding: 6rem 0;  
+    padding: 7rem 0;
+    position: relative;  
+    z-index: 1;
 }
 
 .swiper-slide {
     text-align: center;
-    background: #fff;
     width: 100%;
     border-radius: 7px;
 
@@ -38,17 +73,20 @@
     transition: 250ms all;
 
     &:hover {
-        transform: scaleX(1.5) scaleY(1.8);
-        z-index: 1;
+        transform: scaleX(1.38) scaleY(1.78);
+        z-index: 2;
+        .swiper-button-next,
+        .swiper-button-prev{
+                visibility: hidden;
+            }
     }
 
     &:first-child:hover {
-        margin: 0 30px;
+        margin: 0 110px;
     }
 
     &:last-child:hover {
-        margin: 0 -30px;
+        margin: 0 -110px;
     }
-
-
 }
+
