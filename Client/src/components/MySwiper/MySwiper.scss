@@ -20,7 +20,7 @@
 
 
 .swiper-wrapper {
-    padding: 3.5rem 0;  
+    padding: 6rem 0;  
 }
 
 .swiper-slide {
@@ -38,7 +38,7 @@
     transition: 250ms all;
 
     &:hover {
-        transform: scale(1.5);
+        transform: scaleX(1.5) scaleY(1.8);
         z-index: 1;
     }
 
