@@ -18,27 +18,48 @@
     }
 }
 
-.card{
+.container{
     display: flex;
     flex-direction: column;
     height: 18vh;
+    padding-bottom: 0.85rem;
     background-color: #222222;
+
     
-    .player{
-        height: 65%;
-        .detials-img{
+    .player-or-img{
+        height: 70%;
+
+        .img-container,
+        .player-container{
             border-top-left-radius: 5px;
             border-top-right-radius:  5px;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius:  0px;
             height: 100%;
-            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .detials-img{
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius:  0px;
+            height: 100%;
+            max-height: 100%;
 
         }
+
+        .player{
+            border-top-left-radius: 5px;
+            border-top-right-radius:  5px;
+            height: 100%;
+            max-height: 100%;
+        }
+
     }
 
     .detials{
-        height: 35%;
+        height: 30%;
         color: white;
         border-radius: 0px;
         display: flex;
@@ -67,7 +88,6 @@
         }
         .detials-row2{
             padding-top: 0.5rem;
-            padding-bottom: 0.75rem;
             display: flex;
             font-size: 14px;
             gap: 0.85rem;

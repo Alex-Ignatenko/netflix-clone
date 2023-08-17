@@ -16,6 +16,7 @@ const MySwiper = ({type , genre, title}) => {
   const [contents, setContents] = useState([]);
   const {userInfo, dispatch} = useContext(authContext);
 
+
   useEffect(() => {
     const getList = async () => {
       try {    
