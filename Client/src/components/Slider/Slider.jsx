@@ -7,11 +7,11 @@ import SliderItem from '../SliderItem/SliderItem';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import "./MySwiper.scss"
+import "./Slider.scss"
 
 
 
-const MySwiper = ({type , genre, title}) => {
+const Slider = ({type , genre, title}) => {
 
   const [contents, setContents] = useState([]);
   const {userInfo, dispatch} = useContext(authContext);
@@ -91,4 +91,4 @@ const MySwiper = ({type , genre, title}) => {
   )
 }
 
-export default MySwiper
+export default Slider

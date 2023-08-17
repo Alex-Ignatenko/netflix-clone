@@ -4,7 +4,7 @@ import { authContext } from "../context/authContext";
 import Header from "../components/Header/Header";
 import Featured from "../components/Featured/Featured";
 import "./BrowsePage.scss"
-import MySwiper from "../components/MySwiper/MySwiper";
+import Slider from "../components/Slider/Slider";
 
 
 const BrowsePage = ({type}) => {
@@ -26,9 +26,15 @@ const BrowsePage = ({type}) => {
         {/* <div className="my-slider-container">
           <Slider></Slider>
         </div> */}
-        <MySwiper title='Recommanded'/>
-        <MySwiper type={type} genre="Action"  title={`Action ${type}`}/>
-        <MySwiper type={type} genre="Comedy" title={`Comedy ${type}`}/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} title='Recommanded'/>
+        <Slider type={type} genre="Action"  title={`Action ${type}`}/>
       </main>
     </>
   )
