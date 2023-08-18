@@ -1,0 +1,93 @@
+@import "../../App.scss";
+
+.slider-container {
+
+    h1 {
+        color: #fff;
+        padding-left: 15px;
+        position: relative;
+        //top:5.5rem;
+        top:2.7rem;
+    }
+}
+
+.swiper {
+    width: 100%;
+}
+
+
+.swiper-wrapper {
+    //padding: 6.5rem 0;
+    padding: 4rem 0;
+    position: relative;  
+    z-index: 1;
+}
+
+.swiper-slide {
+    text-align: center;
+    width: 100%;
+    border-radius: 7px;
+
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.2s;
+
+    &:hover {
+        // transform: scaleX(1.39) scaleY(1.78);
+        transform: scaleX(1.25) scaleY(1.52);
+        z-index: 2;
+        .swiper-button-next,
+        .swiper-button-prev{
+                visibility: hidden;
+            }
+    }
+
+    &:first-child:hover {
+        margin: 0 50px;
+    }
+
+    &:last-child:hover {
+        margin: 0 -50px;
+    }
+}
+
+.disabled_swiper_button {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+}
+.swiper-button-prev,
+.swiper-button-next {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .swiper-button-prev:hover, 
+  .swiper-button-next:hover {
+    opacity: 1;
+  }
+
+.swiper-button-prev:after{
+    color: #fff;
+    background-color:rgb(18,18,18,0.65);
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    padding-right: 25px;
+
+}
+
+.swiper-button-next:after {
+    color: #fff;
+    background-color:rgb(18,18,18,0.65);
+    height: 18vh;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 35px;
+}

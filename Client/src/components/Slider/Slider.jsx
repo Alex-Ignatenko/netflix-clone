@@ -1,27 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import SliderItem from '../SliderItem/SliderItem'
 import { Pagination , Navigation , Scrollbar , A11y} from 'swiper/modules';
+import { authContext } from "../../context/authContext";
+import axios from 'axios';
+import SliderItem from '../SliderItem/SliderItem';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import "./MySwiper.scss"
-import axios from 'axios';
+import "./Slider.scss"
 
 
-const MySwiper = ({type , title}) => {
+
+const Slider = ({type , genre, title}) => {
 
   const [contents, setContents] = useState([]);
+  const {userInfo, dispatch} = useContext(authContext);
+
 
   useEffect(() => {
     const getList = async () => {
       try {    
-        let requestedType = type ? '?type=' +  type : '';
-        let path = '/content/getlist' + requestedType;
+        let requestedType = type ? '?type=' +  type : '?type=all';
+        let requestedGenre = genre ? '&genre=' +  genre : '';
+        let path = '/content/getlist' + requestedType + requestedGenre;
         const responce = await axios.get(path, {
-          // headers: {
-          //   authorization: userInfo.token,
-          // },
+          headers: {
+            authorization: userInfo.token,
+          },
         });
         if (responce){
           setContents(responce.data);
@@ -37,7 +42,7 @@ const MySwiper = ({type , title}) => {
 
 
   return (
-    <div className="mySwiper">
+    <div className="slider-container">
       <h1>{title}</h1>
       <Swiper
       // install Swiper modules
@@ -54,28 +59,31 @@ const MySwiper = ({type , title}) => {
             },
         // when window width is >= 1024px
             1024: {
-              spaceBetween: 10,
-              slidesPerView: 4,
+              spaceBetween: 8,
+              slidesPerView: 3,
             },
             1280: {
               spaceBetween: 10,
               slidesPerGroup: 2,
-              slidesPerView: 6,
+              slidesPerView: 4,
             },
+            1480: {
+              spaceBetween: 12,
+              slidesPerGroup: 3,
+              slidesPerView: 6,
+            }
           }}
-      // spaceBetween={8}
-      // slidesPerView={6}
-      // slidesPerGroup={4}
-      navigation
+      navigation={{
+        // nextEl: '.swiper-button-next',
+        // prevEl: '.swiper-button-prev',
+        disabledClass: 'disabled_swiper_button'}}    
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}>
         {contents.map((content) => (
             <SwiperSlide>
-              <div className='slide-item-container'>
-                <img src={content.imgThumb} />
-              </div>
+              <SliderItem content = {content}/>
             </SwiperSlide>
         ))}
       </Swiper>
@@ -83,4 +91,4 @@ const MySwiper = ({type , title}) => {
   )
 }
 
-export default MySwiper
+export default Slider

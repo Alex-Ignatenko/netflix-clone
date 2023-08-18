@@ -3,17 +3,17 @@
 .my-featured-container{
     display: flex;
     flex-direction: column;
-    justify-content: end;   
+    justify-content: flex-end;   
     width: 100vw;
     max-width: 100%;
-    height: 80vh;
-    margin-bottom: 2rem;
+    height: 85vh;
+    // margin-bottom: 2rem;
      
     .bg-img{
         // outline : 1px solid red;
         width: 100%;
         max-width: 100%;
-        height: 80vh;
+        height: 100%;
         z-index: -1;
         object-fit: cover;
     }
@@ -26,7 +26,7 @@
         flex-direction: column;
         justify-content:end;
         
-        margin-bottom: 5rem;
+        margin-bottom: 15rem;
 
         .my-featured-title-img-container{
             // outline : 1px solid red;
