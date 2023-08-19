@@ -42,6 +42,8 @@ const Slider = ({type , genre, title}) => {
 
 
   return (
+
+
     <div className="slider-container">
       <h1>{title}</h1>
       <Swiper
@@ -69,8 +71,8 @@ const Slider = ({type , genre, title}) => {
             },
             1480: {
               spaceBetween: 12,
-              slidesPerGroup: 3,
-              slidesPerView: 6,
+              slidesPerGroup: 5,
+              slidesPerView: 7,
             }
           }}
       navigation={{
@@ -86,7 +88,7 @@ const Slider = ({type , genre, title}) => {
               <SliderItem content = {content}/>
             </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> 
     </div>
   )
 }
