@@ -6,6 +6,7 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 2%;
     margin: 0 15%;
     color: white;
@@ -28,6 +29,8 @@
         justify-content: end;
         border: 1.5px solid rgba(255, 255, 255, 0.75);
         border-radius: 3px;
+        height: 80%;
+
         .info-img{
             height: 100%;
             border: 1.5px solid rgba(255, 255, 255, 0.75);
@@ -62,9 +65,8 @@
             gap: 2rem;
         }
         .info-title-container{
-            @include mobile {
+            @include tablet {
                 display: flex;
-                // width: 100%;
                 text-align: center;
             }
         }

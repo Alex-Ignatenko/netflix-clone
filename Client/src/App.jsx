@@ -8,6 +8,7 @@ import BrowsePage from './pages/BrowsePage';
 import './App.scss'
 import Footer from './components/Footer/Footer';
 import InfoPage from './pages/InfoPage';
+import PlayerPage from './pages/PlayerPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
           <Route path="/movies" element={<BrowsePage type={"movies"}/>} />
           <Route path="/tvshows" element={<BrowsePage type={"tvshows"}/>} />
           <Route path="/info/:id" element={<InfoPage/>} />
+          <Route path="/play/:id" element={<PlayerPage/>} />
         </Routes>
         </main>
         <Footer/>
