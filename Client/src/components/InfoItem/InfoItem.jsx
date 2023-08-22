@@ -1,7 +1,11 @@
 import React from 'react'
 import "./InfoItem.scss"
+import { useNavigate } from 'react-router-dom';
 
 const InfoItem = ({content}) => {
+
+  const navigate = useNavigate();
+
   return (
     <>
     { content&&   
@@ -24,7 +28,7 @@ const InfoItem = ({content}) => {
                     <span>Age restriction: +{content.limit}</span>
                   </div>
                   <div className="btn-container">
-                  <button><span className="material-symbols-outlined btn-icon">play_circle</span>Play</button>
+                  <button onClick={() =>navigate(`/play/${content._id}`)}><span className="material-symbols-outlined btn-icon">play_circle</span>Play</button>
                   </div>
             </div>
         </div>

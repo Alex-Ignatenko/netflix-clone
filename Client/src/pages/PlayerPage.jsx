@@ -41,11 +41,11 @@ const PlayerPage = () => {
   return (
     <>
       <div className='top-btn-container'>
-      <button onClick={() => navigate(-1)}><i className="material-symbols-outlined">exit_to_app</i></button>
-      </div>
-      <div className='main-container'>
-        <Player content={content}></Player>
-      </div>
+          <i className="material-symbols-outlined" onClick={() => navigate(-1)}>exit_to_app</i>
+        </div>
+        <div className='player-container-page'>
+          <Player content={content}></Player>
+        </div>
     </>
   )
 }
