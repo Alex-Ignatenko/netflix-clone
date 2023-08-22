@@ -42,9 +42,10 @@ const InfoPage = () => {
   return (
     <>
         <Header/>
-        <InfoItem content={content}/>
+       <div>
+        <InfoItem content={content} />
+      </div>
     </>
-
   )
 }
 
