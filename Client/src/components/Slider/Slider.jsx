@@ -50,13 +50,13 @@ const Slider = ({type , genre, title}) => {
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       breakpoints={{
-        // when window width is >= 576px
-            576: {
+        // when window width is >= 480px
+            480: {
               slidesPerView: 1,
             },
         // when window width is >= 768px
             768: {
-              spaceBetween: 5,
+              spaceBetween: 4,
               slidesPerView: 2,
             },
         // when window width is >= 1024px

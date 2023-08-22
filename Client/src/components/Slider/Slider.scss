@@ -3,8 +3,13 @@
 .slider-container{
     color: white;
     padding-top: 5rem;
+    position: relative;
     h1{
         padding-bottom: 0.5rem;
+    }
+    & :hover{
+
+        z-index: 2;
     }
 }
 
@@ -18,13 +23,18 @@
     transition: all 0.2s;
 
     &:hover{
-        transform: scaleX(1.675) scaleY(2);
-        //transform: scaleX(1.52) scaleY(1.83);
+        transform: scale(1.675);
+        @include tablet {
+            transform: scale(1) !important;
+        }
+        @include mobile {
+            margin: 0 !important;
+        }
 
-        z-index: 3;
+        z-index: 2;
         .swiper-button-next,
         .swiper-button-prev{
-                visibility: hidden;
+                display: hidden;
             }
     }
 
@@ -47,41 +57,42 @@
 .swiper-button-next {
     transition: opacity 0.3s ease;
     opacity: 0;
+;
   }
   
   .swiper-button-prev:hover, 
   .swiper-button-next:hover {
     opacity: 1;
+
   }
 
 .swiper-button-prev:after{
     color: #fff;
     background-color:rgb(18,18,18,0.65);
-    height: 15rem;
+    height: 12rem;
     display: flex;
     align-items: center;
-    padding-left: 35px;
+    padding-left: 50px;
     padding-right: 25px;
-
 }
 
 .swiper-button-next:after {
     color: #fff;
     background-color:rgb(18,18,18,0.65);
-    height: 15rem;
+    height: 12rem;
     display: flex;
     align-items: center;
     padding-left: 25px;
-    padding-right: 35px;
+    padding-right: 50px;
 }
 
 //Slide item
-.item{
-    background-color: red;
-    height: 15rem;
-    color: white;
-    border-radius: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// .item{
+//     background-color: red;
+//     height: 15rem;
+//     color: white;
+//     border-radius: 7px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }

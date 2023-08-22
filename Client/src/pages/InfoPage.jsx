@@ -42,7 +42,7 @@ const InfoPage = () => {
   return (
     <>
         <Header/>
-       <div>
+       <div className='info-container'>
         <InfoItem content={content} />
       </div>
     </>
