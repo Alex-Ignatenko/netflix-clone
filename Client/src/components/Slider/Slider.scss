@@ -4,13 +4,12 @@
 
 .slider-container{
     color: white;
-    padding-top: 5rem;
+    padding-top: 2.5rem;
     position: relative;
     h1{
         padding-bottom: 0.5rem;
     }
     & :hover{
-
         z-index: 2;
     }
 }
@@ -26,7 +25,7 @@
 
     &:hover{
         //transform: scale(1.675);
-        transform: scale(1.45);
+        transform: scale(1.5);
         @include tablet {
             transform: scale(1) !important;
         }
@@ -42,11 +41,11 @@
     }
 
     &:first-child:hover {
-        margin: 0 80px;
+        margin: 0 95px;
     }
 
     &:last-child:hover {
-        margin: 0 -100px;
+        margin: 0 -95px;
     }
 }
 
@@ -88,14 +87,3 @@
     padding-left: 25px;
     padding-right: 50px;
 }
-
-//Slide item
-// .item{
-//     background-color: red;
-//     height: $slider-item-h;
-//     color: white;
-//     border-radius: 7px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }

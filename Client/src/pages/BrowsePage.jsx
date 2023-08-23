@@ -20,7 +20,6 @@ const BrowsePage = ({type}) => {
 
   return (
     <>
-      <Header/>
       <main className="main">
         <Featured type = {type}></Featured>
         <div className="sliders-container">

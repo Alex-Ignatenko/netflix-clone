@@ -86,8 +86,9 @@ const Slider = ({type , genre, title}) => {
         disabledClass: 'disabled_swiper_button'}}    
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}>
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
+      >
         {contents.map((content) => (
             <SwiperSlide>
               <SliderItem content = {content}/>

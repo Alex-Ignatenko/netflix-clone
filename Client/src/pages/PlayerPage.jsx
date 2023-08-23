@@ -40,12 +40,14 @@ const PlayerPage = () => {
 
   return (
     <>
-      <div className='top-btn-container'>
-          <i className="material-symbols-outlined" onClick={() => navigate(-1)}>exit_to_app</i>
-        </div>
-        <div className='player-container-page'>
-          <Player content={content}></Player>
-        </div>
+      <main>
+        <div className='top-btn-container'>
+            <i className="material-symbols-outlined" onClick={() => navigate(-1)}>exit_to_app</i>
+          </div>
+          <div className='player-container-page'>
+            <Player content={content}></Player>
+          </div>
+      </main>
     </>
   )
 }
