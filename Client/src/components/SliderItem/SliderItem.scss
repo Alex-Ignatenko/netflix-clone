@@ -15,15 +15,10 @@
     }
 
     .details-img-1{
-
-        // height: 100%;
+        height: 100%;
         width: 100%; 
         border-radius: 10px;
-        object-fit: contain;
-
-        @include mobile {
-            object-fit: contain;
-        }
+        object-fit:fill;
     }
 
 
@@ -47,10 +42,6 @@
             border-bottom-left-radius: 0px;
             border-bottom-right-radius:  0px;
             height: 100%;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-            // // object-fit: cover;
         }
 
         .detials-img-2{
@@ -58,12 +49,9 @@
             border-top-right-radius:  5px;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius:  0px;
+            height: 100%;
             width: 100%; 
-            object-fit: contain;
-            @include mobile {
-                object-fit: contain;
-            }
-
+            object-fit: fill;
         }
 
         .player{
@@ -78,7 +66,7 @@
     }
 
     .detials{
-        height: 15%;
+        height: 20%;
         color: white;
         border-radius: 0px;
         display: flex;
