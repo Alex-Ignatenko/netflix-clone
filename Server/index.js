@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import seedRouter  from './Routes/seedRoutes.js';
 import userRouter from './Routes/userRoute.js';
 import contentRouter from './Routes/contentRoute.js';
+import searchRouter from './Routes/searchRoute.js';
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/seed/resetData" , seedRouter)
 app.use("/api/users" , userRouter)
 app.use("/api/content" , contentRouter)
+app.use("/api/search" , searchRouter)
 
 mongoose.connect(process.env.MONGO_DB_URI).then(() => {
     app.listen(PORT);

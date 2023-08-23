@@ -26,7 +26,7 @@
 
     &:hover{
         //transform: scale(1.675);
-        transform: scale(1.45);
+        transform: scale(1.5);
         @include tablet {
             transform: scale(1) !important;
         }
@@ -42,11 +42,11 @@
     }
 
     &:first-child:hover {
-        margin: 0 80px;
+        margin: 0 95px;
     }
 
     &:last-child:hover {
-        margin: 0 -100px;
+        margin: 0 -95px;
     }
 }
 

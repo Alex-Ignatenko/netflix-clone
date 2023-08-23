@@ -41,10 +41,9 @@ const InfoPage = () => {
 
   return (
     <>
-        <Header/>
-       <div className='info-container'>
+       <main className='info-container'>
         <InfoItem content={content} />
-      </div>
+      </main>
     </>
   )
 }

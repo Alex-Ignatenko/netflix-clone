@@ -14,11 +14,12 @@
         border-radius: 10px;
     }
 
-    img{
-        height: 100%;
+    .details-img-1{
+
+        // height: 100%;
         width: 100%; 
         border-radius: 10px;
-        object-fit: cover;
+        object-fit: contain;
 
         @include mobile {
             object-fit: contain;
@@ -29,7 +30,7 @@
 .container{
     display: flex;
     flex-direction: column;
-    height: 20rem;
+    height: $slider-item-h-hover;
     width: 100%;
     padding-bottom: 1.2rem;
     background-color: #222222;
@@ -46,20 +47,19 @@
             border-bottom-left-radius: 0px;
             border-bottom-right-radius:  0px;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            object-fit: cover;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            // // object-fit: cover;
         }
 
-        .detials-img{
+        .detials-img-2{
             border-top-left-radius: 5px;
             border-top-right-radius:  5px;
             border-bottom-left-radius: 0px;
             border-bottom-right-radius:  0px;
-            height: 100%;
-            max-height: 100%;
-
+            width: 100%; 
+            object-fit: contain;
             @include mobile {
                 object-fit: contain;
             }
