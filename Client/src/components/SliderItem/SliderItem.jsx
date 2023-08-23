@@ -24,7 +24,7 @@ const navigate = useNavigate();
                 </div>
               ) : (
                 <div className='player-container'>
-                  <ReactPlayer url={content.movie} playing={isPlaying} className="player" />
+                  <ReactPlayer url={content.movie} playing={isPlaying} height="100%" width="100%" className="player" />
                 </div>
               )
             }

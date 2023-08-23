@@ -1,5 +1,7 @@
 @import "../../App.scss";
 
+
+
 .slider-container{
     color: white;
     padding-top: 5rem;
@@ -23,7 +25,8 @@
     transition: all 0.2s;
 
     &:hover{
-        transform: scale(1.675);
+        //transform: scale(1.675);
+        transform: scale(1.45);
         @include tablet {
             transform: scale(1) !important;
         }
@@ -39,11 +42,11 @@
     }
 
     &:first-child:hover {
-        margin: 0 50px;
+        margin: 0 80px;
     }
 
     &:last-child:hover {
-        margin: 0 -50px;
+        margin: 0 -100px;
     }
 }
 
@@ -69,7 +72,7 @@
 .swiper-button-prev:after{
     color: #fff;
     background-color:rgb(18,18,18,0.65);
-    height: 12rem;
+    height: $slider-item-h;
     display: flex;
     align-items: center;
     padding-left: 50px;
@@ -79,7 +82,7 @@
 .swiper-button-next:after {
     color: #fff;
     background-color:rgb(18,18,18,0.65);
-    height: 12rem;
+    height: $slider-item-h;
     display: flex;
     align-items: center;
     padding-left: 25px;
@@ -89,7 +92,7 @@
 //Slide item
 // .item{
 //     background-color: red;
-//     height: 15rem;
+//     height: $slider-item-h;
 //     color: white;
 //     border-radius: 7px;
 //     display: flex;
