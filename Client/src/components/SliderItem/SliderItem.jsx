@@ -15,10 +15,8 @@ const navigate = useNavigate();
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => {setIsHover(false); setIsPlaying(false)}}
     >
-      { !isHover ? (
-        <img src={content.imgThumb} />
-      ) : (
-        <div className='container'>
+        <img src={content.imgThumb} style={{display: !isHover ? 'block': "none"}}/>
+        <div className='container' style={{display: isHover ? 'block': "none"}}>
           <div className='player-or-img'>
             { !isPlaying ? (
                 <div className='img-container'>
@@ -26,7 +24,7 @@ const navigate = useNavigate();
                 </div>
               ) : (
                 <div className='player-container'>
-                  <ReactPlayer url={content.movie} playing={isPlaying} className="player" />
+                  <ReactPlayer url={content.movie} playing={isPlaying} height="100%" width="100%" className="player" />
                 </div>
               )
             }
@@ -50,8 +48,6 @@ const navigate = useNavigate();
             </div>
           </div>
         </div>
-      )
-      }
     </div>
   );
 };

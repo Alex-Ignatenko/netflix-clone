@@ -49,7 +49,7 @@ const Featured = ({type}) => {
             </div>
             <div className="my-featured-btn-container">
                 <div className="my-featured-btn-left-container">
-                    <button><span className="material-symbols-outlined btn-icon">play_circle</span>Play</button>
+                    <button onClick={() =>navigate(`/play/${randomContent._id}`)}><span className="material-symbols-outlined btn-icon">play_circle</span>Play</button>
                     <button className="my-button-secondry" onClick={() =>navigate(`/info/${randomContent._id}`)}><span className="material-symbols-outlined btn-icon">info</span>Info</button>
                 </div>
                 <div className="my-featured-btn-right-container">

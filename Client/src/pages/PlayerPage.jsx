@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import "./InfoPage.scss"
-import InfoItem from '../components/InfoItem/InfoItem'
+import './PlayerPage.scss'
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { authContext } from '../context/authContext';
 import axios from 'axios';
-import Header from '../components/Header/Header';
+import Player from '../components/Player/Player';
 
-const InfoPage = () => {
+const PlayerPage = () => {
 
     const params = useParams();
     const {id} = params;
@@ -41,12 +40,14 @@ const InfoPage = () => {
 
   return (
     <>
-        <Header/>
-       <div className='info-container'>
-        <InfoItem content={content} />
-      </div>
+      <div className='top-btn-container'>
+          <i className="material-symbols-outlined" onClick={() => navigate(-1)}>exit_to_app</i>
+        </div>
+        <div className='player-container-page'>
+          <Player content={content}></Player>
+        </div>
     </>
   )
 }
 
-export default InfoPage
+export default PlayerPage
