@@ -65,7 +65,7 @@ const Slider = ({type , genre, title}) => {
               slidesPerView: 3,
             },
             1280: {
-              spaceBetween: 18,
+              spaceBetween: 8,
               slidesPerGroup: 4,
               slidesPerView: 4,
             },
@@ -74,20 +74,19 @@ const Slider = ({type , genre, title}) => {
               slidesPerGroup: 5,
               slidesPerView: 5,
             },
-            1880: {
-              spaceBetween: 12,
-              slidesPerGroup: 6,
-              slidesPerView: 6,
-            }
+            // 1880: {
+            //   spaceBetween: 12,
+            //   slidesPerGroup: 6,
+            //   slidesPerView: 6,
+            // }
           }}
       navigation={{
         // nextEl: '.swiper-button-next',
         // prevEl: '.swiper-button-prev',
-        disabledClass: 'disabled_swiper_button'}}    
+      disabledClass: 'disabled_swiper_button'}}    
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      // onSwiper={(swiper) => console.log(swiper)}
-      // onSlideChange={() => console.log('slide change')}
+      loop={true}
       >
         {contents.map((content) => (
             <SwiperSlide>
