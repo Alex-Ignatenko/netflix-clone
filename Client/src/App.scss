@@ -3,7 +3,7 @@
 $primary-color: #E50914;
 $secondary-color: #484d55;
 $slider-item-h: 16rem;
-$slider-item-h-hover: $slider-item-h + $slider-item-h/4;
+$slider-item-h-hover: $slider-item-h + calc($slider-item-h / 4);
 
 *{
 margin: 0;
