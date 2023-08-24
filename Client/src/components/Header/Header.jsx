@@ -75,16 +75,16 @@ const Header = () => {
                       <div className="contentDropdown">
                         <div>
                           <NavLink to="/movies" className='my-link-container'>
-                            <div className="icon-container">
-                            <span class="material-symbols-outlined my-icon">movie</span>
-                            </div>
+                          <div className="icon-container">
+                          <span class="material-symbols-outlined my-icon">movie</span>
+                          </div>
                             Movies
                           </NavLink>
                         </div>
                         <div>
                           <NavLink to="/tvshows" className='my-link-container'>
                           <div className="icon-container">
-                            <span class="material-symbols-outlined my-icon">tv</span>
+                          <span class="material-symbols-outlined my-icon">tv</span>
                           </div>
                             TV Shows
                           </NavLink>
