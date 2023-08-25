@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./SearchPage.scss"
 import Header from '../components/Header/Header'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../context/authContext';
 import axios from 'axios';
 import { GetURLSearchFilter } from '../Services/GetURLSearchFilter';
@@ -68,16 +68,23 @@ const SearchPage = () => {
   return (
     <div className='searchPage-container'>
       <div className="genres-containr">
-        {
-          genres.map(genre => (
-            <div>{genre}</div>
-          ))
-        }
+        <div className="link-container">
+          <Link>All</Link>
+          {
+            genres.map(genre => (
+                <Link>{genre}</Link>
+            ))
+          }
+        </div>
       </div>
       <div className="contents-container">
         {contents &&
           contents.map(content => (
-            <img src={content.imgThumb}></img>
+              <div className="search-res-item">
+                <Link to={`/info/${content._id}`}>
+                  <img src={content.imgThumb}></img>
+                </Link>
+              </div>
           ))
         }
       </div>
