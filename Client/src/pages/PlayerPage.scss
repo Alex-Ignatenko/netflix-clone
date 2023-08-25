@@ -16,19 +16,6 @@
     top: 0;
     left: 0;    
     z-index: 2;
-
-    // button{
-    //     margin: 10px;
-    //     width: auto;
-    //     height: auto;
-    //     background-color: transparent !important;
-
-    //     & :hover{
-    //         box-shadow: none;
-    //         border: none;
-            
-    //     }
-    // }
     i{
         transform: rotate(180deg);
         font-size: 5rem;
@@ -42,7 +29,6 @@
     }
     transition: scale 0.3 ease-in-out;
     & :hover{
-        scale: (1.1);
-        
+        scale: (1.1);    
     }
 }

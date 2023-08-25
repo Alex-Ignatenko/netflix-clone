@@ -35,7 +35,9 @@ const Searchbox = () => {
 
   return (
     <div className={isSearchShown ? "my-search-container shown" : "my-search-container"}>
-        <span onClick={toggleSearchbar} className="material-symbols-outlined my-icon">Search</span> 
+        <div className="icon-container">
+          <span onClick={toggleSearchbar} className="material-symbols-outlined my-icon">Search</span>         
+        </div>
         <input type='text' onChange={(e) => setQuery(e.target.value)} placeholder='Search..,' className={isSearchShown ? 'my-search-input shown' : 'my-search-input'}/> 
     </div>
   )

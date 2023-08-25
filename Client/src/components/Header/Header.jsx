@@ -49,15 +49,19 @@ const Header = () => {
             { windowResize >= 860 ? (
     
               <>
-                <div className='my-link-container'>
-                  <span className="material-symbols-outlined my-icon">movie</span>
-                  <NavLink to="/movies">
+                <div >
+                  <NavLink to="/movies" className='my-link-container'>
+                  <div className="icon-container">
+                    <span className="material-symbols-outlined my-icon">movie</span>
+                  </div>
                     Movies
                   </NavLink>
                 </div>
-                <div className='my-link-container'>
-                  <span className="material-symbols-outlined my-icon">tv</span> 
-                  <NavLink to="/tvshows">
+                <div>
+                  <NavLink to="/tvshows" className='my-link-container'>
+                    <div className="icon-container">
+                      <span className="material-symbols-outlined my-icon">tv</span>
+                    </div>
                     TV Shows
                   </NavLink>
                 </div>  
@@ -69,15 +73,19 @@ const Header = () => {
                   {
                     isContentMenue && (
                       <div className="contentDropdown">
-                        <div className='my-link-container'>
+                        <div>
+                          <NavLink to="/movies" className='my-link-container'>
+                          <div className="icon-container">
                           <span class="material-symbols-outlined my-icon">movie</span>
-                          <NavLink to="/movies">
+                          </div>
                             Movies
                           </NavLink>
                         </div>
-                        <div className='my-link-container'>
-                          <span class="material-symbols-outlined my-icon">tv</span> 
-                          <NavLink to="/tvshows">
+                        <div>
+                          <NavLink to="/tvshows" className='my-link-container'>
+                          <div className="icon-container">
+                          <span class="material-symbols-outlined my-icon">tv</span>
+                          </div>
                             TV Shows
                           </NavLink>
                       </div> 
@@ -103,7 +111,11 @@ const Header = () => {
               {
                 isUserMenue ? (
                   <div className="userDropdown">
-                    <a onClick={signOutHandler}><span class="material-symbols-outlined my-icon">logout</span> Log out</a>
+                    <a onClick={signOutHandler}>
+                      <div className="icon-container">
+                        <span class="material-symbols-outlined my-icon">logout</span>
+                      </div> 
+                    Log out</a>
                   </div>) : (<></>)
               }
             </div>

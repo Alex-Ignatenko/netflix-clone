@@ -42,8 +42,6 @@ const Slider = ({type , genre, title}) => {
 
 
   return (
-
-
     <div className="slider-container">
       <h1>{title}</h1>
       <Swiper
@@ -57,16 +55,18 @@ const Slider = ({type , genre, title}) => {
         // when window width is >= 768px
             500: {
               spaceBetween: 4,
+              slidesPerGroup: 2,
               slidesPerView: 2,
             },
         // when window width is >= 1024px
             1024: {
               spaceBetween: 6,
+              slidesPerGroup: 3,
               slidesPerView: 3,
             },
             1280: {
-              spaceBetween: 18,
-              slidesPerGroup: 2,
+              spaceBetween: 8,
+              slidesPerGroup: 4,
               slidesPerView: 4,
             },
             1480: {
@@ -74,20 +74,19 @@ const Slider = ({type , genre, title}) => {
               slidesPerGroup: 5,
               slidesPerView: 5,
             },
-            1880: {
-              spaceBetween: 12,
-              slidesPerGroup: 5,
-              slidesPerView: 6,
-            }
+            // 1880: {
+            //   spaceBetween: 12,
+            //   slidesPerGroup: 6,
+            //   slidesPerView: 6,
+            // }
           }}
       navigation={{
         // nextEl: '.swiper-button-next',
         // prevEl: '.swiper-button-prev',
-        disabledClass: 'disabled_swiper_button'}}    
+      disabledClass: 'disabled_swiper_button'}}    
       // pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      // onSwiper={(swiper) => console.log(swiper)}
-      // onSlideChange={() => console.log('slide change')}
+      loop={true}
       >
         {contents.map((content) => (
             <SwiperSlide>

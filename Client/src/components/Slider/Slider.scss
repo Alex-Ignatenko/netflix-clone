@@ -6,8 +6,10 @@
     color: white;
     padding-top: 2.5rem;
     position: relative;
+
     h1{
         padding-bottom: 0.5rem;
+        margin-left: 4rem;
     }
     & :hover{
         z-index: 2;
@@ -16,8 +18,11 @@
 
 .swiper{
     overflow-y: visible;
-    max-width: 100%
+    max-width: 100%;
+    padding: 0 5rem;
 }
+
+
 
 .swiper-slide{
     border-radius: 7px;
@@ -40,13 +45,14 @@
             }
     }
 
-    &:first-child:hover {
-        margin: 0 95px;
-    }
 
-    &:last-child:hover {
-        margin: 0 -95px;
-    }
+    // &:first-child:hover {
+    //     margin: 0 95px;
+    // }
+
+    // &:last-child:hover {
+    //     margin: 0 -95px;
+    // }
 }
 
 //Arrow Prev Next Buttons
@@ -87,3 +93,15 @@
     padding-left: 25px;
     padding-right: 50px;
 }
+
+// .first-visible-slide{
+//     &:hover{
+//         margin: 0 100px;
+//     }
+// }
+
+// .last-visible-slide{
+//     &:hover{
+//         margin: 0 -100px;
+//     }
+// }

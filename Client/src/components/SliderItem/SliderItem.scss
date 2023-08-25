@@ -31,7 +31,9 @@
     background-color: #222222;
     border-radius: 10px;
 
-    
+    @include mobile {
+        padding-bottom: 2rem;
+    }
     .player-or-img{
         height: 80%;
 
