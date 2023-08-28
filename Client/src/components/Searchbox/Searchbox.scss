@@ -10,14 +10,13 @@
     padding-bottom: 0.25rem;
     transition: border 0.5s ease;
     border: none;
-    width: 70%;
-
 
     &.shown{
 
         transition: width 0.5s ease;
         border: rgb(200, 200, 200) solid 2px;
-        border-radius: 12px;  
+        border-radius: 12px;
+        width: 70%;  
     }
 
     .my-icon{
