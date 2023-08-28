@@ -30,7 +30,15 @@
 
         .my-featured-title-img-container{
             // outline : 1px solid red;
-            width: 50%;
+
+            width: 35%;
+            height: 15rem;
+            margin-left: 15px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+
+
             @include mobile{
                 display: flex;
                 align-self: center;
@@ -39,14 +47,17 @@
             }
             img {
                 
-                width: 50%;
-                min-width: 350px;
+                // width: 50%;
+                // min-width: 350px;
+                // max-width: 100%;
+                // object-fit: cover;
+                max-height: 100%;
                 max-width: 100%;
-                object-fit: cover;
-                margin-left: 10px;
+                object-fit: contain;
+
 
                 @include tablet{
-                    width: 100%;
+                    max-width: 100%;
                     min-width: 350px;
                 }
                 
@@ -61,43 +72,44 @@
         .my-featured-desc-container{
             //  background-color: aquamarine;
             // outline : 1px solid red;
-            width: 50%;
+
+            width: 30%;
+            height: 10rem;
             display: flex;
             justify-content:flex-start;
-            align-items: start;
-            margin-left: 25px;
+            align-items: flex-start;
+            margin-left: 1rem;
+            margin-top: 2rem;
+
+            @include tablet{
+                //outline: red 1px solid;
+
+                width: 100%;
+                margin-left: 10px;
+            }
+
 
             p{
                 color: white;
                 font-size: large;
                 overflow-wrap: normal;
                 font-weight: 700;
-                margin: 20px;
+                margin-left: 20px;
 
-                @include tablet{
-
-                    //outline: red 1px solid;
-                    width: 100%;
-                    overflow: hidden;
-                    text-overflow: hidden;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 8;
-                    line-clamp: 8;
-                    -webkit-box-orient: vertical;
-                    // padding-bottom: 15rem;   
-                }
-
-                @include mobile{
-                    display: none;   
-                }
+                overflow: hidden;
+                text-overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 8;
+                line-clamp: 8;
+                -webkit-box-orient: vertical;
             }
         }
 
         .my-featured-btn-container{
             // background-color: aquamarine;
-        //    outline : 1px solid red;
-            height: 20%;
+            // outline : 1px solid red;
 
+            height: 20%;
             display: flex;
             justify-content:space-between;
             align-items: center;
@@ -139,7 +151,7 @@
                     border-left: 3px solid white;
                     display: flex;
                     align-items: center;
-                    padding-left: 0.225rem;
+                    padding-left: 0.5rem;
                 
                     @include mobile{
                         width: 35%;
