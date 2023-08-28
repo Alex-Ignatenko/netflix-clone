@@ -73,6 +73,7 @@ const SearchPage = () => {
         <div className='searchPage-subcontainer'>
           <div className="genres-containr">
             <div className="link-container">
+            <div className="big-screen-link-container"></div>
               <Link>All</Link>
               {
                 genres.map(genre => (
