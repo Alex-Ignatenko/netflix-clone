@@ -1,28 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./SearchPage.scss"
-import Header from '../components/Header/Header'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../context/authContext';
 import axios from 'axios';
 import { GetURLSearchFilter } from '../Services/GetURLSearchFilter';
+import Searchbox from '../components/Searchbox/Searchbox';
 
 const SearchPage = () => {
 
   const {userInfo, dispatch} = useContext(authContext);
   const [contents, setContents] = useState([]);
   const [genres, setGenres] = useState([]);
+  // const [windowResize, setWindowResize] = useState(window.innerWidth);
 
   const {search} = useLocation();
   const navigate = useNavigate();
 
   //Get all the filter options backend requires from url
   const searchParams = new URLSearchParams(search);  
-
   const page = 1;
   const query = searchParams.get('query') || 'all';
   const genre = searchParams.get('genre') || 'all';
 
-
+  // window.onresize = () => {
+  //   setWindowResize(window.innerWidth)
+  // }
 
 
   useEffect(() => {
@@ -66,29 +68,33 @@ const SearchPage = () => {
     },[query,genre,page]);
 
   return (
-    <div className='searchPage-container'>
-      <div className="genres-containr">
-        <div className="link-container">
-          <Link>All</Link>
-          {
-            genres.map(genre => (
-                <Link>{genre}</Link>
+    <>
+      {/* { windowResize >= 480 ? (<Searchbox/>) : (<></>)
+      } */}
+      <div className='searchPage-container'>
+        <div className="genres-containr">
+          <div className="link-container">
+            <Link>All</Link>
+            {
+              genres.map(genre => (
+                  <Link>{genre}</Link>
+              ))
+            }
+          </div>
+        </div>
+        <div className="contents-container">
+          {contents &&
+            contents.map(content => (
+                <div className="search-res-item">
+                  <Link to={`/info/${content._id}`}>
+                    <img src={content.imgThumb}></img>
+                  </Link>
+                </div>
             ))
           }
         </div>
       </div>
-      <div className="contents-container">
-        {contents &&
-          contents.map(content => (
-              <div className="search-res-item">
-                <Link to={`/info/${content._id}`}>
-                  <img src={content.imgThumb}></img>
-                </Link>
-              </div>
-          ))
-        }
-      </div>
-    </div>
+    </>
   )
 }
 
