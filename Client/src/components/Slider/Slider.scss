@@ -19,7 +19,7 @@
 .swiper{
     overflow-y: visible;
     max-width: 100%;
-    padding: 0 5rem;
+    padding: 0 6rem;
 }
 
 
@@ -29,30 +29,21 @@
     transition: all 0.2s;
 
     &:hover{
-        //transform: scale(1.675);
+
         transform: scale(1.5);
+        z-index: 2;
+        .swiper-button-next,
+        .swiper-button-prev{
+                display: hidden;
+            }
         @include tablet {
             transform: scale(1) !important;
         }
         @include mobile {
             margin: 0 !important;
         }
-
-        z-index: 2;
-        .swiper-button-next,
-        .swiper-button-prev{
-                display: hidden;
-            }
     }
 
-
-    // &:first-child:hover {
-    //     margin: 0 95px;
-    // }
-
-    // &:last-child:hover {
-    //     margin: 0 -95px;
-    // }
 }
 
 //Arrow Prev Next Buttons
