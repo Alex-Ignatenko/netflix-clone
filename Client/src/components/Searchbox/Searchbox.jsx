@@ -4,22 +4,20 @@ import { GetURLSearchFilter } from '../../Services/GetURLSearchFilter';
 
 import "./Searchbox.scss"
 
-const Searchbox = () => {
+const Searchbox = ({showSearch, isToggleable}) => {
     const [query, setQuery] = useState("");
-    const [isSearchShown, setisSearchShown] = useState(false);
+    const [isSearchShown, setisSearchShown] = useState(showSearch);
     const {search, pathname} = useLocation();
     const navigate = useNavigate();
 
     console.log("search:" + search)
 
+    if(isToggleable){
+      
+    }
     const toggleSearchbar = () => {
         setisSearchShown(!isSearchShown)
-      }
-
-//    const searchClicked = (e) => {
-//        const link = GetURLSearchFilter(search, {query: query || 'all'});  
-//        navigate(link);
-//    };
+    }
    
    //Enables search as you type via use effect that fires every query change
     useEffect(() =>{
@@ -35,8 +33,8 @@ const Searchbox = () => {
 
   return (
     <div className={isSearchShown ? "my-search-container shown" : "my-search-container"}>
-        <div className="icon-container">
-          <span onClick={toggleSearchbar} className="material-symbols-outlined my-icon">Search</span>         
+        <div className={isToggleable? "icon-container" : ""}>
+          <span  onClick={isToggleable? toggleSearchbar : undefined} className="material-symbols-outlined my-icon">Search</span>         
         </div>
         <input type='text' onChange={(e) => setQuery(e.target.value)} placeholder='Search..,' className={isSearchShown ? 'my-search-input shown' : 'my-search-input'}/> 
     </div>

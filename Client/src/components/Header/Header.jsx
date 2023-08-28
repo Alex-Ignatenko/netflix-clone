@@ -99,7 +99,7 @@ const Header = () => {
           </div>
           <div className='my-right-side-container'>
             { windowResize >= 860 ? (
-              <Searchbox/>
+              <Searchbox showSearch={false} isToggleable={true}/>
             ) : (
               <span onClick={() => {navigate("/search")}} className="material-symbols-outlined my-icon">Search</span> 
             )

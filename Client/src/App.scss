@@ -53,6 +53,13 @@ button{
 
 }
 
+.icon-container{
+  transition: scale 0.3 ease-in-out;
+  & :hover{
+      scale: (1.2);    
+  }
+}
+
 ////////////////////////////////////Scrollbar////////////////////////////////
 ::-webkit-scrollbar {
   width: 0.25rem;

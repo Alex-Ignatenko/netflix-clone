@@ -11,8 +11,7 @@ const SearchPage = () => {
   const {userInfo, dispatch} = useContext(authContext);
   const [contents, setContents] = useState([]);
   const [genres, setGenres] = useState([]);
-  // const [windowResize, setWindowResize] = useState(window.innerWidth);
-
+ 
   const {search} = useLocation();
   const navigate = useNavigate();
 
@@ -22,9 +21,7 @@ const SearchPage = () => {
   const query = searchParams.get('query') || 'all';
   const genre = searchParams.get('genre') || 'all';
 
-  // window.onresize = () => {
-  //   setWindowResize(window.innerWidth)
-  // }
+
 
 
   useEffect(() => {
@@ -69,29 +66,32 @@ const SearchPage = () => {
 
   return (
     <>
-      {/* { windowResize >= 480 ? (<Searchbox/>) : (<></>)
-      } */}
-      <div className='searchPage-container'>
-        <div className="genres-containr">
-          <div className="link-container">
-            <Link>All</Link>
-            {
-              genres.map(genre => (
-                  <Link>{genre}</Link>
+      <div className="searchPage-main-container">
+        <div className="searchPage-searchbar-container">
+          <Searchbox showSearch={true} isToggleable={false}/>
+        </div>
+        <div className='searchPage-subcontainer'>
+          <div className="genres-containr">
+            <div className="link-container">
+              <Link>All</Link>
+              {
+                genres.map(genre => (
+                    <Link>{genre}</Link>
+                ))
+              }
+            </div>
+          </div>
+          <div className="contents-container">
+            {contents &&
+              contents.map(content => (
+                  <div className="search-res-item">
+                    <Link to={`/info/${content._id}`}>
+                      <img src={content.imgThumb}></img>
+                    </Link>
+                  </div>
               ))
             }
           </div>
-        </div>
-        <div className="contents-container">
-          {contents &&
-            contents.map(content => (
-                <div className="search-res-item">
-                  <Link to={`/info/${content._id}`}>
-                    <img src={content.imgThumb}></img>
-                  </Link>
-                </div>
-            ))
-          }
         </div>
       </div>
     </>
