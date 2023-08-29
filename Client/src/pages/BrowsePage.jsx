@@ -1,41 +1,79 @@
-import { useContext, useEffect } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../context/authContext";
 import Featured from "../components/Featured/Featured";
 import Slider from "../components/Slider/Slider";
-import "./BrowsePage.scss"
+import axios from "axios";
+import "./BrowsePage.scss";
+import { UPDATE_USERLIST } from "../context/reducerActions";
 
-
-const BrowsePage = ({type}) => {
-
-  const {userInfo, dispatch} = useContext(authContext);
-  const navigate = useNavigate()
+const BrowsePage = ({ type }) => {
+  const navigate = useNavigate();
+  const [contents, setContents] = useState([]);
+  const { userInfo, userList, dispatch } = useContext(authContext);
 
   useEffect(() => {
-    if(!userInfo) {
-      navigate('/signin?=redirect=/browse');        
-  }
-  },[userInfo, navigate]);
+    if (!userInfo) {
+      navigate("/signin?=redirect=/browse");
+    }
+  }, [userInfo, navigate]);
+
+  useEffect(() => {
+    const getList = async () => {
+      try {
+        let requestedType = type ? "?type=" + type : "?type=all";
+        // let requestedGenre = genre ? "&genre=" + genre : "";
+        const path = "/content/getlist" + requestedType;
+
+        const response = await axios.get(path, {
+          headers: {
+            authorization: userInfo.token,
+          },
+        });
+        if (response) {
+          setContents(response.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getList();
+  }, [type]);
+
+  useEffect(() => {
+    const getList = async () => {
+      try {
+        const path = "/users/getuserlist?name=" + userInfo.username + "`s List";
+
+        const response = await axios.get(path, {
+          headers: {
+            authorization: userInfo.token,
+          },
+        });
+        if (response) {
+          dispatch({ type: UPDATE_USERLIST, payload: response.data });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getList();
+  }, [userInfo]);
 
   return (
     <>
       <main className="main">
-        <Featured type = {type}></Featured>
+        <Featured type={type}></Featured>
         <div className="sliders-container">
-          <Slider type={type} title={`${userInfo.username}` + "`s List"}/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} title='Recommanded'/>
-          <Slider type={type} genre="Action"  title={`Action ${type}`}/>
+          <Slider
+            contentList={userList}
+            title={`${userInfo.username}` + "`s List"}
+          />
+          <Slider contentList={contents} title="Recommanded" />
         </div>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default BrowsePage
+export default BrowsePage;

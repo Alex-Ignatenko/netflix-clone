@@ -8,52 +8,12 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "./Slider.scss";
-import { UPDATE_USERLIST } from "../../context/reducerActions";
 
-const Slider = ({ type, genre, title }) => {
-  const [contents, setContents] = useState([]);
-  const {userInfo, userList, dispatch } = useContext(authContext);
-
-  useEffect(() => {
-    const getList = async () => {
-      try {
-
-        let path = "";
-
-        if(title === userInfo.username+"`s List") {
-          path="/user/getuserlist";
-        }
-
-        else{
-          let requestedType = type ? "?type=" + type : "?type=all";
-          let requestedGenre = genre ? "&genre=" + genre : "";
-          path = "/content/getlist" + requestedType + requestedGenre;
-        }
-
-        const response = await axios.get(path, {
-          headers: {
-            authorization: userInfo.token,
-          },
-        });
-        if (response) {
-          if(title === userInfo.username+"`s List"){
-            dispatch({type: UPDATE_USERLIST, payload: response.data});
-            setContents(userList.contents)
-          }else{
-            setContents(response.data);
-          }
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getList();
-  }, [type,userList]);
-
+const Slider = ({ contentList, title }) => {
   return (
-  <>
-    { contents.length > 0  &&
-          <div className="slider-container">
+    <>
+      {contentList && contentList.length > 0 && (
+        <div className="slider-container">
           <h1>{title}</h1>
           <Swiper
             // install Swiper modules
@@ -100,15 +60,15 @@ const Slider = ({ type, genre, title }) => {
             scrollbar={{ draggable: true }}
             loop={true}
           >
-            {contents.map((content, i) => (
+            {contentList.map((content, i) => (
               <SwiperSlide key={i}>
                 <SliderItem content={content} />
               </SwiperSlide>
             ))}
           </Swiper>
-      </div>
-    }
-  </>
+        </div>
+      )}
+    </>
   );
 };
 
