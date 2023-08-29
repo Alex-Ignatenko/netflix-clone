@@ -44,7 +44,6 @@ const BrowsePage = ({ type }) => {
     const getList = async () => {
       try {
         const path = "/users/getuserlist?name=" + userInfo.username + "`s List";
-
         const response = await axios.get(path, {
           headers: {
             authorization: userInfo.token,
@@ -58,7 +57,7 @@ const BrowsePage = ({ type }) => {
       }
     };
     getList();
-  }, [userInfo]);
+  }, [userInfo,userList]);
 
   return (
     <>

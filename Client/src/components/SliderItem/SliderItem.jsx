@@ -13,7 +13,7 @@ const SliderItem = ({ content }) => {
 
   const navigate = useNavigate();
 
-  const addToUserList = async () => {
+  const changeUserList = async () => {
     console.log(userInfo.token);
     try {
       const response = await axios.post(
@@ -77,16 +77,19 @@ const SliderItem = ({ content }) => {
               </span>
               {userList &&
               userList.contents &&
-              userList.contents.find((c) => c._id === content._id) ? (
-                <span className="material-symbols-outlined btn-icon">
+              userList.contents.includes((c) => c === content._id) ? (
+                <span 
+                  className="material-symbols-outlined btn-icon"
+                  onClick={() => changeUserList()}
+                  >
                   do_not_disturb_on
                 </span>
               ) : (
                 <span
                   className="material-symbols-outlined btn-icon"
-                  onClick={() => addToUserList()}
+                  onClick={() => changeUserList()}
                 >
-                  add_circle
+                add_circle
                 </span>
               )}
             </div>

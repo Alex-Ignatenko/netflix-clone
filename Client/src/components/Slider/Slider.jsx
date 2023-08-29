@@ -60,7 +60,7 @@ const Slider = ({ contentList, title }) => {
             scrollbar={{ draggable: true }}
             loop={true}
           >
-            {contentList.map((content, i) => (
+            {contentList && contentList.length > 0 && contentList.map((content, i) => (
               <SwiperSlide key={i}>
                 <SliderItem content={content} />
               </SwiperSlide>
