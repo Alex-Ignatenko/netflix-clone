@@ -77,15 +77,15 @@ userRouter.post(
         console.log(req.params.id)
         console.log("before remove: " + list.contents);
         list.contents = await list.contents.filter((c) => c !== req.params.id);
-        list.save();
+        // await list.contents.deleteOne( {"_id": ObjectId(req.params.id)});
         console.log("------------------------------------------------------")
-        console.log("after remove: " + list.contents);
 
       } else {
         list.contents.push(req.params.id);
-        list.save();
       }
 
+      list.save();
+      console.log("after remove: " + list.contents);
 
       let response = [];
       for (let i = 0; i < list.contents.length; i++) {
