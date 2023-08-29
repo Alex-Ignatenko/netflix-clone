@@ -66,12 +66,18 @@
                 gap: 0.5rem;
             }
 
-            img {
-                width: 10rem;
-            
-                @include mobile{
-                    width: 6rem;
-                    margin-left: 3px;
+            .left-side-logo-container{
+                img {
+                    width: 10rem;  
+                    @include mobile{
+                        width: 6rem;
+                        margin-left: 3px;
+                    }
+                }
+
+                transition: scale 0.3 ease-in-out;
+                & :hover {
+                  scale: (1.1);
                 }
             }
 

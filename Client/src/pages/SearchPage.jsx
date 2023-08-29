@@ -70,7 +70,7 @@ const SearchPage = () => {
         <div className="searchPage-subcontainer">
           <div className="genres-containr">
             <div className="link-container">
-              <div className="big-screen-link-container"></div>
+              {/* <div className="big-screen-link-container"></div> */}
               <Link to={GetURLSearchFilter(search, { genre: "allGenres" })}>
                 All
               </Link>
@@ -79,6 +79,11 @@ const SearchPage = () => {
                   {genre}
                 </Link>
               ))}
+
+              {/* <div className="small-screen-container">
+                <div className="genreDropdown">
+                </div>
+              </div> */}
             </div>
           </div>
           <div className="contents-container">
