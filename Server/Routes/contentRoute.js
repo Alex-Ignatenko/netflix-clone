@@ -23,10 +23,10 @@ contentRouter.get('/get/:id',isAuth,expressAsyncHandler(async (req, res) => {
       } catch (error) {
         res.status(500).json(error);
       }
-    })
+  })
 );
 
-//get random content
+//get a list ???? content
 contentRouter.get('/getlist',isAuth,expressAsyncHandler(async (req, res) => {
   const type = req.query.type;
   const genre = req.query.genre;
@@ -85,7 +85,9 @@ contentRouter.get('/random',isAuth,expressAsyncHandler(async (req, res) => {
         res.status(500).json(error);
       }
     })
-  );
+);
+
+
 export default contentRouter;
 
 // const newList = await Content.aggregate([{ $match: { isSeries: isSeries } },{ $sample: { size: 8 } },]);

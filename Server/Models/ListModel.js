@@ -3,8 +3,8 @@ import mongoose, { Schema } from "mongoose";
 const listSchema = mongoose.Schema(
     {
         name : { type: String, required: true },
-        genere : { type: String, required: true},
-        type : { type: String, required: true},
+        genre : { type: String},
+        type : { type: String},
         contents: [{ type: Schema.Types.ObjectId, ref: "Content"}],
     },
     { timestamps: true }

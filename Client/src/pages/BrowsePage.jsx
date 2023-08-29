@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { authContext } from "../context/authContext";
-import Header from "../components/Header/Header";
 import Featured from "../components/Featured/Featured";
 import Slider from "../components/Slider/Slider";
 import "./BrowsePage.scss"
@@ -23,6 +22,7 @@ const BrowsePage = ({type}) => {
       <main className="main">
         <Featured type = {type}></Featured>
         <div className="sliders-container">
+          <Slider type={type} title={`${userInfo.username}` + "`s List"}/>
           <Slider type={type} title='Recommanded'/>
           <Slider type={type} title='Recommanded'/>
           <Slider type={type} title='Recommanded'/>

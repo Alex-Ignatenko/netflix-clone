@@ -17,6 +17,7 @@ seedRouter.get("/", async (req, res) => {
 
     const createdUsers = await User.insertMany(data.users); 
     const createdContents = await Content.insertMany(data.content);
+    const createdLists = await List.insertMany(data.lists);
     const createdGenres = [];
 
     for (let index = 0; index < genres.length; index++) {
@@ -26,7 +27,7 @@ seedRouter.get("/", async (req, res) => {
       createdGenres.push(newGenre);
     }
 
-    res.send({createdUsers, createdContents,createdGenres});
+    res.send({createdUsers, createdContents,createdLists,createdGenres});
   } catch (e) {
     console.log("failed to update " + e.message);
   }

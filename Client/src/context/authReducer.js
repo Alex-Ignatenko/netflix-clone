@@ -1,4 +1,4 @@
-import { USER_SIGNIN, USER_SIGNOUT } from "./reducerActions";
+import { USER_SIGNIN, USER_SIGNOUT, UPDATE_USERLIST } from "./reducerActions";
 
 
 export const authReducer = (state, { type, payload }) => {
@@ -15,6 +15,11 @@ export const authReducer = (state, { type, payload }) => {
               ...state,
               userInfo: null,
           }
+      case UPDATE_USERLIST:
+            return {
+                ...state,
+                userList: payload
+            }
       default:
           return state;
   }
