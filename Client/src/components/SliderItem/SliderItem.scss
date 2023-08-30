@@ -23,7 +23,7 @@
 
     .container{
         //outline: 1px solid blue;
-        box-shadow: 0px 0px 7px 0px #1d1d1d;
+        box-shadow: 0px 0px 7px 0px #0e0e0e;
         width: 100%;
         // height: 150%;
         position: absolute;
@@ -101,11 +101,22 @@
                 }
             }
             .detials-row2{
-                padding-top: 0.25rem;
+                padding-top: 0.5rem;
                 display: flex;
                 font-size: 0.8rem;
-                gap: 0.5rem;
+                gap: 2rem;
                 color: rgb(152, 151, 151);
+
+
+                .age-span{
+                    margin: -3px;
+                    padding: 3px;
+                    outline: 0.5px solid rgb(152, 151, 151);
+                }
+
+                .genre-span{
+                    color: rgb(15, 98, 15);
+                }
             }
         }
     }
@@ -116,9 +127,8 @@
         background-color: white;
         border-radius: 100vh;
         color: #222222;
-        font-size: 28px;
+        font-size: 2rem;
         cursor: pointer;
-        // padding-bottom: 2px;
     }
 
 }

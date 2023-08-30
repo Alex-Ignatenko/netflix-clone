@@ -117,7 +117,7 @@ const SliderItem = ({ content , title }) => {
               <span>{content.duration}</span>
               <span>{content.year}</span>
               <span className="age-span">+{content.limit}</span>
-              <span>{content.genre}</span>
+              <span className="genre-span">{content.genre}</span>
             </div>
           </div>
         </div>
