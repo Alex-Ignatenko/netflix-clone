@@ -10,6 +10,8 @@ const SigninPage = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isValid, setIsValid] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const {search} = useLocation();
@@ -47,8 +49,8 @@ const SigninPage = () => {
           <div className="signin-card">
             <h1>Sign in</h1>
             <form className="signin-card-body">
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address'/>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password'/>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address' required />
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>
               <button onClick={submitHandler}>Sign In</button>
             </form>
             <div className="signin-card-footer">

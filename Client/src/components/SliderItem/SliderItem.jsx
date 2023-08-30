@@ -10,14 +10,12 @@ import { UPDATE_USERLIST } from "../../context/reducerActions";
 const SliderItem = ({ content , title }) => {
   const [isHover, setIsHover] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isContentIncluded, setIsContentIncluded] = useState(false);
   const { userInfo, userList, dispatch } = useContext(authContext);
 
   const navigate = useNavigate();
 
-  const changeUserList = async () => {
-    setIsContentIncluded(!isContentIncluded);
 
+  const changeUserList = async () => {
     try {
       const response = await axios.post(
         `users/updateuserlist/${content._id}`,
@@ -83,7 +81,7 @@ const SliderItem = ({ content , title }) => {
                     {!isPlaying ? "play_circle" : "stop_circle"}
                   </span>
                 </div>
-                {isContentIncluded || (title.includes(userInfo.username)) ? (
+                {userList.find((c) => c._id === content._id) ? (
                   <div className="icon-container">
                     <span 
                       className="material-symbols-outlined btn-icon"
