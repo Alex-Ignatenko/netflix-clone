@@ -6,6 +6,7 @@ import axios from "axios";
 import { authContext } from "../../context/authContext";
 import { UPDATE_USERLIST } from "../../context/reducerActions";
 
+
 const SliderItem = ({ content , title }) => {
   const [isHover, setIsHover] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,9 +15,9 @@ const SliderItem = ({ content , title }) => {
 
   const navigate = useNavigate();
 
-
   const changeUserList = async () => {
     setIsContentIncluded(!isContentIncluded);
+
     try {
       const response = await axios.post(
         `users/updateuserlist/${content._id}`,
@@ -32,7 +33,7 @@ const SliderItem = ({ content , title }) => {
   };
 
   return (
-    <>
+       <>
         {content && 
       (
         <div
