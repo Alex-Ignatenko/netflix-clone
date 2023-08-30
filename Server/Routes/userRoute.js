@@ -23,6 +23,7 @@ userRouter.post(
       return;
     }
     res.status(401).send({ message: "Invalid Credentials" });
+    console.log("check");
   })
 );
 
@@ -69,7 +70,7 @@ userRouter.post(
   expressAsyncHandler(async (req, res) => {
 
     try {
-      // console.log(req.user);
+
       let list = await List.findOne({
         name: req.user.username + "`s List",
       });
