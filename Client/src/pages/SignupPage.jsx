@@ -29,6 +29,12 @@ const SignupPage = () => {
     userInfo && navigate(redirect); 
   },[navigate, redirect, userInfo]);
 
+  // const checkEmail = (e) => {
+  //   setEmail(e.target.value)
+  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  //   if (!emailRegex.test(email))
+  //     setIsValid(false);
+  // }
   const gotoPwField = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailRegex.test(email)) {

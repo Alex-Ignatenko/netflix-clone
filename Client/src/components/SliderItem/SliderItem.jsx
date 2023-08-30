@@ -63,7 +63,6 @@ const SliderItem = ({ content , title }) => {
                   playing={isPlaying}
                   height="100%"
                   width="100%"
-                  className="player"
                 />
               </div>
             )}
