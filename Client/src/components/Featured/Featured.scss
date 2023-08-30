@@ -63,13 +63,13 @@
             //  background-color: aquamarine;
             //outline : 1px solid red;
 
-            width: 50%;
+            max-width: 30%;
             display: flex;
             justify-content:flex-start;
             align-items: flex-start;
 
             @include tablet{
-                width: 100%;
+                max-width: 100%;
                 padding-right: 2rem;
             }
 
