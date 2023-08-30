@@ -14,15 +14,6 @@ const SliderItem = ({ content , title }) => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if(userList){
-  //     if (userList.includes(content._id)) {
-  //       setIsContentIncluded(true);
-  //       console.log("im here")
-  //     }
-  //   }
-  // }, [userList]);
-  
 
   const changeUserList = async () => {
     setIsContentIncluded(!isContentIncluded);
