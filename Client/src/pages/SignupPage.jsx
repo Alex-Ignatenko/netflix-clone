@@ -17,6 +17,8 @@ const SignupPage = () => {
   const {search} = useLocation();
   const redirectInURL = new URLSearchParams(search).get('redirect'); //Current locations URL
   const redirect = redirectInURL? redirectInURL : '/browse';
+  const [isValid, setIsValid] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
 
   const  {userInfo, dispatch} = useContext(authContext);
@@ -30,9 +32,11 @@ const SignupPage = () => {
   const gotoPwField = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailRegex.test(email)) {
+      setIsValid(true);
       setField('password')
     }else{
-      alert('Please enter a valid email address');
+      setIsValid(false);
+      setErrorMessage("Please enter a valid email");
     }
   }
 
@@ -64,7 +68,7 @@ const SignupPage = () => {
                 <div className="signup-form">
                 { field === 'email' ? 
                   (<>
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder='Email address'/>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder='Email address' className={isValid ? '' : 'on-error'}/>
                     <button onClick={gotoPwField} >Get Started {'>'}</button>
                   </>):(
                   <>
@@ -73,6 +77,7 @@ const SignupPage = () => {
                   </>
                   ) }
                 </div>
+                <span className='error-span' style={{ display: isValid ? "none" : "block" }} >{errorMessage}</span>
                 <p className='redirect-signin-p'>Already have an account? <Link to="/signin"> Sign in</Link></p>
         </main>
      </div>

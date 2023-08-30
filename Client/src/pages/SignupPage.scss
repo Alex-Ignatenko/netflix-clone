@@ -7,6 +7,7 @@
     width: 100vw;
     max-width: 100%;
     color: white;  
+
 }
 
 .signup-container > main{
@@ -65,7 +66,8 @@
     width: 50rem;
     max-width: 100%;
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
+    margin-top: 1rem;
 
     @include tablet{
 
@@ -115,15 +117,12 @@
             margin-left: 0.25rem;
         }
 
-        // @include mobile{
-        //     background-color: green;
-        // }
     }  
 }
 .redirect-signin-p{
     font-size:large;
     font-weight: 200;
-    margin: 5px;
+    margin: 1.5rem;
     color: darken($color: white, $amount: 20%);
     a {
         color: white;
@@ -136,3 +135,16 @@
 }
 
 
+.error-span{
+    color: $primary-color;
+}
+
+
+.on-error{
+    border: 1px solid $primary-color !important;
+    color: $primary-color !important;
+    &:focus{
+        border: solid 1px transparent !important;
+        color: white !important;
+    }
+}
