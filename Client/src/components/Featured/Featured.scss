@@ -3,11 +3,10 @@
 .my-featured-container{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;   
+    justify-content: end; 
     width: 100vw;
-    max-width: 100%;
-    height: 85vh;
-    // margin-bottom: 2rem;
+
+    height: 100vh;
      
     .bg-img{
         // outline : 1px solid red;
@@ -18,23 +17,25 @@
         object-fit: cover;
     }
     .my-feature-dits-container{
-        position: absolute;
-        // outline : 1px solid red;
+        //outline : 1px solid red;
         //background-color: rgb(25, 233, 233);
+
+        position: absolute;
         width: 100%;
+        max-width: 100%;
+        height: 50%;
         display: flex;
         flex-direction: column;
         justify-content:end;
-        
-        margin-bottom: 15rem;
+        gap: 1.5rem;  
+        padding-left: 2rem;
+        margin-bottom: 10rem;
 
         .my-featured-title-img-container{
-            // outline : 1px solid red;
+            //outline : 1px solid red;
 
-            width: 35%;
-            height: 15rem;
-            margin-left: 1rem;
-            margin-bottom: 1rem;
+            width: 30%;
+            height: 50%;
             display: flex;
             justify-content: flex-start;
             align-items: flex-end;
@@ -45,46 +46,30 @@
                 align-self: center;
                 justify-content: center;
                 width: 100%;
+                padding-right: 2rem;
             }
             img {
                 
-                // width: 50%;
-                // min-width: 350px;
-                // max-width: 100%;
-                // object-fit: cover;
-                max-height: 100%;
-                max-width: 100%;
-                object-fit: contain;
-
-
-                @include tablet{
-                    max-width: 100%;
-                    min-width: 350px;
-                }
+                height: 100%;
+                width: 100%;
+                min-width: 350px;
+                object-fit: scale-down;
                 
-                @include mobile{
-                    width: 90%;
-                    padding-bottom: 1rem;
-                    margin: 1rem;
-                }
             }
         }
 
         .my-featured-desc-container{
             //  background-color: aquamarine;
-            // outline : 1px solid red;
+            //outline : 1px solid red;
 
-            max-width: 40rem;
-            height: 10rem;
+            width: 50%;
             display: flex;
             justify-content:flex-start;
             align-items: flex-start;
-            margin-left: 1rem;
-            margin-top: 1rem;
 
             @include tablet{
                 width: 100%;
-                margin-inline: 1rem;
+                padding-right: 2rem;
             }
 
 
@@ -93,7 +78,6 @@
                 font-size: large;
                 overflow-wrap: normal;
                 font-weight: 700;
-                margin-left: 20px;
 
                 overflow: hidden;
                 text-overflow: hidden;
@@ -106,7 +90,7 @@
 
         .my-featured-btn-container{
             // background-color: aquamarine;
-            // outline : 1px solid red;
+            //outline : 1px solid red;
 
             height: 20%;
             margin-top: 1rem;
@@ -118,10 +102,9 @@
                 //background-color: rgb(0, 0, 0);
                 height: 100%;
                 width: 40%;
-
+                gap: 1rem;
                 display: flex;
                 justify-content: flex-start;
-                padding-left: 1rem;
 
             }
 
@@ -154,8 +137,7 @@
                     padding-left: 0.5rem;
                 
                     @include mobile{
-                        width: 35%;
-                        margin-top: 10%;     
+                        width: 35%;     
                     }   
 
                 }
@@ -173,11 +155,9 @@ button{
     width: 250px;
     font-size: 1.5rem;
     font-weight: 900;
-    margin-left: 1rem;
-    //padding-left: 0.25rem;
 
     @include mobile{  
-        height: 30%;  
+        // height: 30%;  
         font-size: large;
         // margin: 0.15rem;
         padding: 1rem;
