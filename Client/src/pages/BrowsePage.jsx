@@ -57,7 +57,7 @@ const BrowsePage = ({ type }) => {
       }
     };
     getList();
-  }, [userInfo,userList]);
+  }, [userInfo]);
 
   return (
     <>

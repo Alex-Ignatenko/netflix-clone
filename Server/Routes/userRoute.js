@@ -74,18 +74,22 @@ userRouter.post(
         name: req.user.username + "`s List",
       });
       if (list.contents.includes(req.params.id)) {
-        console.log(req.params.id)
-        console.log("before remove: " + list.contents);
-        list.contents = await list.contents.filter((c) => c !== req.params.id);
-        // await list.contents.deleteOne( {"_id": ObjectId(req.params.id)});
-        console.log("------------------------------------------------------")
+
+        // console.log(req.params.id) 
+        // console.log("before remove: " + list.contents);
+
+        await list.contents.remove(req.params.id);
+
+        // console.log("------------------------------------------------------")
+        // console.log("after remove: " + list.contents);
 
       } else {
         list.contents.push(req.params.id);
       }
 
+
       list.save();
-      console.log("after remove: " + list.contents);
+      // console.log("after save to db");
 
       let response = [];
       for (let i = 0; i < list.contents.length; i++) {
@@ -93,8 +97,10 @@ userRouter.post(
         response.push(c);
       }
       res.status(200).json(response);
+      console.log("Payload sent")
     } catch (error) {
       res.status(500).json(error);
+      console.log("error happened: " + error.message);
     }
   })
 );

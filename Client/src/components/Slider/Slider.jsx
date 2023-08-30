@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Scrollbar, A11y } from "swiper/modules";
-import { authContext } from "../../context/authContext";
-import axios from "axios";
 import SliderItem from "../SliderItem/SliderItem";
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -62,7 +60,7 @@ const Slider = ({ contentList, title }) => {
           >
             {contentList && contentList.length > 0 && contentList.map((content, i) => (
               <SwiperSlide key={i}>
-                <SliderItem content={content} />
+                <SliderItem content={content} title={title} />
               </SwiperSlide>
             ))}
           </Swiper>

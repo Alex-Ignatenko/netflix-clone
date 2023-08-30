@@ -6,7 +6,7 @@ import axios from "axios";
 import { authContext } from "../../context/authContext";
 import { UPDATE_USERLIST } from "../../context/reducerActions";
 
-const SliderItem = ({ content }) => {
+const SliderItem = ({ content , title }) => {
   const [isHover, setIsHover] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isContentIncluded, setIsContentIncluded] = useState(false);
@@ -15,19 +15,17 @@ const SliderItem = ({ content }) => {
   const navigate = useNavigate();
 
   // useEffect(() => {
-  //   if(userList.length > 0){
-  //     if ( userList.includes(content._id)) {
+  //   if(userList){
+  //     if (userList.includes(content._id)) {
   //       setIsContentIncluded(true);
-  //     } else {
-  //       setIsContentIncluded(false);
+  //       console.log("im here")
   //     }
   //   }
   // }, [userList]);
   
 
   const changeUserList = async () => {
-    console.log(userList)
-    console.log(content._id)
+    setIsContentIncluded(!isContentIncluded);
     try {
       const response = await axios.post(
         `users/updateuserlist/${content._id}`,
@@ -83,38 +81,47 @@ const SliderItem = ({ content }) => {
           <div className="detials">
             <div className="detials-row1">
               <div className="btn-col1">
-                <span
-                  className="material-symbols-outlined btn-icon"
-                  onClick={() => {
-                    setIsPlaying(!isPlaying);
-                  }}
-                >
-                  {!isPlaying ? "play_circle" : "stop_circle"}
-                </span>
-                {isContentIncluded ? (
-                  <span 
-                    className="material-symbols-outlined btn-icon"
-                    onClick={() =>changeUserList()}
-                    >
-                    do_not_disturb_on
-                  </span>
-                ) : (
+                <div className="icon-container">
                   <span
                     className="material-symbols-outlined btn-icon"
-                    onClick={() =>changeUserList()}
+                    onClick={() => {
+                      setIsPlaying(!isPlaying);
+                    }}
                   >
-                  add_circle
+                    {!isPlaying ? "play_circle" : "stop_circle"}
                   </span>
+                </div>
+                {isContentIncluded || (title.includes(userInfo.username)) ? (
+                  <div className="icon-container">
+                    <span 
+                      className="material-symbols-outlined btn-icon"
+                      onClick={() =>changeUserList()}
+                      >
+                      do_not_disturb_on
+                    </span>
+                  </div>
+                ) : (
+                  <div className="icon-container">
+                    <span
+                      className="material-symbols-outlined btn-icon"
+                      onClick={() =>changeUserList()}
+                    >
+                    add_circle
+                    </span>
+                  </div>
+
                 )
                 }
               </div>
               <div className="btn-col2">
-                <span
-                  className="material-symbols-outlined btn-icon"
-                  onClick={() => navigate(`/info/${content._id}`)}
-                >
-                  info
-                </span>
+                <div className="icon-container">
+                  <span
+                    className="material-symbols-outlined btn-icon"
+                    onClick={() => navigate(`/info/${content._id}`)}
+                  >
+                    info
+                  </span>
+                </div>
               </div>
             </div>
             <div className="detials-row2">
@@ -134,4 +141,3 @@ const SliderItem = ({ content }) => {
 
 export default SliderItem;
 
-//${isHover && "hovered-item"}
