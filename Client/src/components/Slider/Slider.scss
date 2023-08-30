@@ -71,8 +71,8 @@
     height: $slider-item-h;
     display: flex;
     align-items: center;
-    padding-left: 50px;
-    padding-right: 25px;
+    padding-left: 80px;
+    padding-right: 50px;
 }
 
 .swiper-button-next:after {
@@ -81,8 +81,9 @@
     height: $slider-item-h;
     display: flex;
     align-items: center;
-    padding-left: 25px;
-    padding-right: 50px;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 80px;
 }
 
 // .first-visible-slide{
