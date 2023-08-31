@@ -114,14 +114,18 @@ const SliderItem = ({ content , title }) => {
               </div>
             </div>
             <div className="detials-row2">
-              <div className="detials-row2-section-1">
+                <p>{content.duration}</p>
+                <p>{content.year}</p>
+                <p className="age-span">+{content.limit}</p>
+                <p className="genre-span">{content.genre}</p>
+              {/* <div className="detials-row2-section-1">
                 <p>{content.duration}</p>
                 <p>{content.year}</p>
               </div>
               <div className="detials-row2-section-2">
                 <p className="age-span">+{content.limit}</p>
                 <p className="genre-span">{content.genre}</p>
-              </div>
+              </div> */}
 
             </div>
           </div>
