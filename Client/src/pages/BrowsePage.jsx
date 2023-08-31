@@ -22,7 +22,6 @@ const BrowsePage = ({ type }) => {
     const getList = async () => {
       try {
         let requestedType = type ? "?type=" + type : "?type=all";
-        // let requestedGenre = genre ? "&genre=" + genre : "";
         const path = "/content/getlist" + requestedType;
 
         const response = await axios.get(path, {
@@ -69,11 +68,8 @@ const BrowsePage = ({ type }) => {
             title={`${userInfo.username}` + "`s List"}
           />
           <Slider contentList={contents} title="Recommanded" />
-          {/* <Slider contentList={contents} title="Most-Viewed" />
+          <Slider contentList={contents} title="Most-Viewed" />
           <Slider contentList={contents} title="Recently Added" />
-          <Slider contentList={contents} title="Action" />
-          <Slider contentList={contents} title="Comedy" /> */}
-
         </div>
       </main>
     </>

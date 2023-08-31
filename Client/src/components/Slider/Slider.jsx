@@ -56,7 +56,7 @@ const Slider = ({ contentList, title }) => {
             scrollbar={{ draggable: true }}
             loop={true}
           >
-            {contentList && contentList.length > 0 && contentList.map((content, i) => (
+            {contentList && contentList.length > 0 && contentList.sort(() => Math.random() - 0.5).map((content, i) => (
               <SwiperSlide key={i}>
                 <SliderItem content={content} title={title} />
               </SwiperSlide>
