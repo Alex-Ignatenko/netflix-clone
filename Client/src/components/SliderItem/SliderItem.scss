@@ -129,6 +129,10 @@
         color: #222222;
         font-size: 2rem;
         cursor: pointer;
+
+        @include tablet{
+            font-size: 1rem;
+        }
     }
 
 }
