@@ -11,13 +11,15 @@ const BrowsePage = ({ type }) => {
   const navigate = useNavigate();
   const [contents, setContents] = useState([]);
   const { userInfo, userList, dispatch } = useContext(authContext);
+  const genreNames =['Action','Comedy','Fantasy','Detective','Horror','Animation']
+
 
   useEffect(() => {
     if (!userInfo) {
       navigate("/signin?=redirect=/browse");
     }
   }, [userInfo, navigate]);
-
+ 
   useEffect(() => {
     const getList = async () => {
       try {
@@ -31,12 +33,16 @@ const BrowsePage = ({ type }) => {
         });
         if (response) {
           setContents(response.data);
-        }
+          console.log("getList res: " + response.data);
+        }    
       } catch (error) {
         console.log(error);
       }
     };
+
     getList();
+ 
+
   }, [type]);
 
   useEffect(() => {
@@ -70,6 +76,16 @@ const BrowsePage = ({ type }) => {
           <Slider contentList={contents} title="Recommanded" />
           <Slider contentList={contents} title="Most-Viewed" />
           <Slider contentList={contents} title="Recently Added" />
+          {type !== "tvshows" &&
+            <Slider contentList={contents} title="Top Movie picks" />
+          }
+          {type !== "movies" &&
+            <Slider contentList={contents} title="Top Series picks"/>
+          }
+          <Slider contentList={contents} title="Watch Again" />
+          {genreNames.map((genre, i) =>(
+            <Slider contentList={contents.filter((res) => res.genre === genre)} key={i} title={genre}/>
+          ))}
         </div>
       </main>
     </>
