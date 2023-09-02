@@ -11,8 +11,7 @@ const SigninPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
-  const [errorMessageEmail, setErrorMessageEmail] = useState("");
-  const [errorMessagePW, setErrorMessagePW] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const {search} = useLocation();
@@ -28,14 +27,23 @@ const SigninPage = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      setErrorMessage("Please enter a valid Email and password");
+      e.stopPropagation();
+    }else {
       try {
         const {data} = await axios.post('/users/signin', {email, password});
         dispatch({type: USER_SIGNIN,payload: data}); 
         navigate(redirect); 
       } catch (error) {
-        toast.error(error.message);
+        //toast.error(error.message);
+        setErrorMessage("Invalid Credentials Entered");
+        setValidated(false);
+        e.stopPropagation();
       }
+    }
+      setValidated(true);
   }
 
   
@@ -50,12 +58,11 @@ const SigninPage = () => {
        <main>
           <div className="signin-card">
             <h1>Sign in</h1>
-            <form className="signin-card-body">
+            <form className="signin-card-body" noValidate validated={isValid} onSubmit={submitHandler}>
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address' required/>
-              <span className='error-span'>{errorMessageEmail}</span>
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>
-              <span className='error-span'>{errorMessagePW}</span>
-              <button onClick={submitHandler}>Sign In</button>
+              <span className='error-span'>{errorMessage}</span>
+              <button>Sign In</button>
             </form>
             <div className="signin-card-footer">
               <p className='redirect-signup-p'>New to Netflix? <Link to="/"> Sign up</Link></p>

@@ -23,7 +23,7 @@ userRouter.post(
       return;
     }
     res.status(401).send({ message: "Invalid Credentials" });
-    console.log("check");
+    console.log("Invalid Credentials");
   })
 );
 
