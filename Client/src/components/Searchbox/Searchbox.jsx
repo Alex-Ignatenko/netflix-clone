@@ -21,7 +21,7 @@ const Searchbox = ({ showSearch, isToggleable }) => {
     if (pathname != "/search" && !query) {
       return;
     }
-    const link = GetURLSearchFilter(search, { query: query || "" });
+    const link = GetURLSearchFilter(search, { query: query, genre: "allGenres"});
     navigate(link);
   }, [query]);
 

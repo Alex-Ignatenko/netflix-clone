@@ -27,13 +27,23 @@ const SigninPage = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    try {
-      const {data} = await axios.post('/users/signin', {email, password});
-      dispatch({type: USER_SIGNIN,payload: data}); 
-      navigate(redirect); 
-    } catch (error) {
-      toast.error(error.message);
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      setErrorMessage("Please enter a valid Email and password");
+      e.stopPropagation();
+    }else {
+      try {
+        const {data} = await axios.post('/users/signin', {email, password});
+        dispatch({type: USER_SIGNIN,payload: data}); 
+        navigate(redirect); 
+      } catch (error) {
+        //toast.error(error.message);
+        setErrorMessage("Invalid Credentials Entered");
+        setValidated(false);
+        e.stopPropagation();
+      }
     }
+      setValidated(true);
   }
 
   
@@ -48,10 +58,11 @@ const SigninPage = () => {
        <main>
           <div className="signin-card">
             <h1>Sign in</h1>
-            <form className="signin-card-body">
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address' required />
+            <form className="signin-card-body" noValidate validated={isValid} onSubmit={submitHandler}>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email address' required/>
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>
-              <button onClick={submitHandler}>Sign In</button>
+              <span className='error-span'>{errorMessage}</span>
+              <button>Sign In</button>
             </form>
             <div className="signin-card-footer">
               <p className='redirect-signup-p'>New to Netflix? <Link to="/"> Sign up</Link></p>

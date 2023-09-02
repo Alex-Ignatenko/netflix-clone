@@ -19,8 +19,8 @@ export const GetURLSearchFilter = (searchFromURL, filter) => {
 
   let link = "";
 
-  if (!filterQuery && !filterGenre) {
-    link = "/search";
+  if (!filterQuery  && !filterGenre) {
+    link = `/search`;
     return link;
   }
 
@@ -33,6 +33,10 @@ export const GetURLSearchFilter = (searchFromURL, filter) => {
     link = `/search?query=${filterQuery}&page=${filterPage}`;
     return link;
   }
-  link = `/search?genre=${filterGenre}&page=${filterPage}&query=${filterQuery}`;
+
+  if (filterQuery  && filterGenre){
+    link = `/search?genre=${filterGenre}&page=${filterPage}&query=${filterQuery}`;
+  }
+
   return link;
 };

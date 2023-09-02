@@ -21,13 +21,11 @@ const Slider = ({ contentList, title }) => {
               480: {
                 slidesPerView: 1,
               },
-              // when window width is >= 768px
               500: {
                 spaceBetween: 4,
                 slidesPerGroup: 2,
                 slidesPerView: 2,
               },
-              // when window width is >= 1024px
               1024: {
                 spaceBetween: 6,
                 slidesPerGroup: 3,
@@ -43,11 +41,11 @@ const Slider = ({ contentList, title }) => {
                 slidesPerGroup: 5,
                 slidesPerView: 5,
               },
-              // 1880: {
-              //   spaceBetween: 12,
-              //   slidesPerGroup: 6,
-              //   slidesPerView: 6,
-              // }
+              1880: {
+                spaceBetween: 12,
+                slidesPerGroup: 6,
+                slidesPerView: 6,
+              }
             }}
             navigation={{
               // nextEl: '.swiper-button-next',
@@ -58,7 +56,7 @@ const Slider = ({ contentList, title }) => {
             scrollbar={{ draggable: true }}
             loop={true}
           >
-            {contentList && contentList.length > 0 && contentList.map((content, i) => (
+            {contentList && contentList.length > 0 && contentList.sort(() => Math.random() - 0.5).map((content, i) => (
               <SwiperSlide key={i}>
                 <SliderItem content={content} title={title} />
               </SwiperSlide>

@@ -63,7 +63,6 @@ const SliderItem = ({ content , title }) => {
                   playing={isPlaying}
                   height="100%"
                   width="100%"
-                  className="player"
                 />
               </div>
             )}
@@ -115,10 +114,19 @@ const SliderItem = ({ content , title }) => {
               </div>
             </div>
             <div className="detials-row2">
-              <span>{content.duration}</span>
-              <span>{content.year}</span>
-              <span className="age-span">+{content.limit}</span>
-              <span>{content.genre}</span>
+                <p>{content.duration}</p>
+                <p>{content.year}</p>
+                <p className="age-span">+{content.limit}</p>
+                <p className="genre-span">{content.genre}</p>
+              {/* <div className="detials-row2-section-1">
+                <p>{content.duration}</p>
+                <p>{content.year}</p>
+              </div>
+              <div className="detials-row2-section-2">
+                <p className="age-span">+{content.limit}</p>
+                <p className="genre-span">{content.genre}</p>
+              </div> */}
+
             </div>
           </div>
         </div>

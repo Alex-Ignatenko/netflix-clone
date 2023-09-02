@@ -29,6 +29,7 @@ const SignupPage = () => {
     userInfo && navigate(redirect); 
   },[navigate, redirect, userInfo]);
 
+
   const gotoPwField = () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailRegex.test(email)) {
@@ -62,9 +63,11 @@ const SignupPage = () => {
           </div>
         </div>
         <main>
+                <div className='title-container'>
                 <h1 className='first-title'>Unlimited movies, TV shows, and more</h1>
                 <p>Watch anywhere. Cancel anytime.</p>
                 <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                </div>
                 <div className="signup-form">
                 { field === 'email' ? 
                   (<>

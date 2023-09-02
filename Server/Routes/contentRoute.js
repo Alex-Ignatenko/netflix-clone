@@ -35,25 +35,25 @@ contentRouter.get('/getlist',isAuth,expressAsyncHandler(async (req, res) => {
     if (type === 'tvshows') {
       if (genre){
         contentList = await Content.aggregate([
-          { $match: { isSeries: true , genre: genre } },{ $sample: { size: 10 } }]);
+          { $match: { isSeries: true , genre: genre } },{ $sample: { size: 12 } }]);
       } else {
         contentList = await Content.aggregate([
-          { $match: { isSeries: true  } },{ $sample: { size: 10 } }]);
+          { $match: { isSeries: true  } },{ $sample: { size: 12 } }]);
       }
     } else if (type === 'movies') {
             if (genre){
               contentList = await Content.aggregate([
-                { $match: { isSeries: false, genre: genre } },{ $sample: { size: 10 } },]);
+                { $match: { isSeries: false, genre: genre } },{ $sample: { size: 12 } },]);
             }else{
               contentList = await Content.aggregate([
-                { $match: { isSeries: false } },{ $sample: { size: 10 } },]);
+                { $match: { isSeries: false } },{ $sample: { size: 12 } },]);
             }
     } else {
       if (genre){
         contentList = await Content.aggregate([
-          { $match: { genre: genre } },{ $sample: { size: 10 } },]);
+          { $match: { genre: genre } },{ $sample: { size: 12 } },]);
         }else
-          contentList = await Content.aggregate([{ $sample: { size: 10 } }]);
+          contentList = await Content.aggregate([{ $sample: { size: 25 } }]);
     }
     res.status(200).json(contentList);
   } catch (error) {
