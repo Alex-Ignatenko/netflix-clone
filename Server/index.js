@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import indexRouter  from './Routes/indexRoute.js';
 import seedRouter  from './Routes/seedRoutes.js';
 import userRouter from './Routes/userRoute.js';
 import contentRouter from './Routes/contentRoute.js';
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/api/", indexRouter)
 app.use("/api/seed/resetData" , seedRouter)
 app.use("/api/users" , userRouter)
 app.use("/api/content" , contentRouter)

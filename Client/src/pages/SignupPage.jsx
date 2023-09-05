@@ -14,9 +14,6 @@ const SignupPage = () => {
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
-  const {search} = useLocation();
-  const redirectInURL = new URLSearchParams(search).get('redirect'); //Current locations URL
-  const redirect = redirectInURL? redirectInURL : '/browse';
   const [isValid, setIsValid] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -26,8 +23,10 @@ const SignupPage = () => {
 
 
   useEffect(() => {
-    userInfo && navigate(redirect); 
-  },[navigate, redirect, userInfo]);
+    if(userInfo){
+      navigate("/browse");
+    }
+  },[navigate, userInfo]);
 
 
   const gotoPwField = () => {
@@ -49,7 +48,8 @@ const SignupPage = () => {
       dispatch({type: USER_SIGNIN,payload: data}); 
       navigate(redirect); 
     } catch (error) {
-      toast.error(error.message);
+      setErrorMessage('Signup failed');
+      console.log(error.message);
     }
 
   }

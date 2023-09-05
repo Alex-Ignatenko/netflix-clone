@@ -16,7 +16,7 @@ const BrowsePage = ({ type }) => {
 
   useEffect(() => {
     if (!userInfo) {
-      navigate("/signin?=redirect=/browse");
+      navigate("/signin?redirect=/browse");
     }
   }, [userInfo, navigate]);
  
@@ -33,16 +33,12 @@ const BrowsePage = ({ type }) => {
         });
         if (response) {
           setContents(response.data);
-          console.log("getList res: " + response.data);
         }    
       } catch (error) {
         console.log(error);
       }
     };
-
     getList();
- 
-
   }, [type]);
 
   useEffect(() => {
@@ -69,10 +65,12 @@ const BrowsePage = ({ type }) => {
       <main className="main">
         <Featured type={type}></Featured>
         <div className="sliders-container">
-          <Slider
-            contentList={userList}
-            title={`${userInfo.username}` + "`s List"}
-          />
+          {userInfo &&
+            <Slider
+              contentList={userList}
+              title={`${userInfo.username}` + "`s List"}
+            />
+          }
           <Slider contentList={contents} title="Recommanded" />
           <Slider contentList={contents} title="Most-Viewed" />
           <Slider contentList={contents} title="Recently Added" />

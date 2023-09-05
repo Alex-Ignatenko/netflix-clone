@@ -17,7 +17,7 @@ const InfoPage = () => {
   
     useEffect(() => {
       if(!userInfo) {
-        navigate('/signin?=redirect=/browse');        
+        navigate('/signin');        
     }
     },[userInfo, navigate]);
 
