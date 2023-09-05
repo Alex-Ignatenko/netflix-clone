@@ -3,13 +3,14 @@ import "./SearchPage.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../context/authContext";
 import axios from "axios";
-import { GetURLSearchFilter } from "../Services/GetURLSearchFilter";
+import { GetURLSearchFilter } from "../services/GetURLSearchFilter";
 import Searchbox from "../components/Searchbox/Searchbox";
 
 const SearchPage = () => {
   const { userInfo, dispatch } = useContext(authContext);
   const [contents, setContents] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [isGenreMenue,setIsGenreMenue] = useState(false);
 
   const { search } = useLocation();
   const navigate = useNavigate();
@@ -70,20 +71,39 @@ const SearchPage = () => {
         <div className="searchPage-subcontainer">
           <div className="genres-containr">
             <div className="link-container">
-              {/* <div className="big-screen-link-container"></div> */}
-              <Link to={GetURLSearchFilter(search, { genre: "allGenres" })}>
-                All
-              </Link>
-              {genres.map((genre, i) => (
-                <Link key={i} to={GetURLSearchFilter(search, { genre: genre })}>
-                  {genre}
+              <div className="big-screen-link-container">
+                <Link to={GetURLSearchFilter(search, { genre: "allGenres" })}>
+                  All
                 </Link>
-              ))}
-
-              {/* <div className="small-screen-container">
-                <div className="genreDropdown">
-                </div>
-              </div> */}
+                {genres.map((genre, i) => (
+                  <Link key={i} to={GetURLSearchFilter(search, { genre: genre })}>
+                    {genre}
+                  </Link>
+                ))}
+              </div>
+              <div className="small-screen-container">
+                    Select Genre
+                  <span
+                    className={
+                      "material-symbols-outlined my-icon my-arrow-icon-span"
+                    }
+                    onClick={() => {
+                      setIsGenreMenue(!isGenreMenue);
+                    }}
+                  >
+                    arrow_drop_down
+                  </span>
+                  {isGenreMenue && (
+                    <div className="genreDropdown">
+                    <Link to={GetURLSearchFilter(search, { genre: "allGenres" })}>All</Link>
+                    {genres.map((genre, i) => (
+                      <Link key={i} to={GetURLSearchFilter(search, { genre: genre })}>
+                        {genre}
+                      </Link>
+                    ))}
+                    </div>
+                  )}
+              </div>
             </div>
           </div>
           <div className="contents-container">
