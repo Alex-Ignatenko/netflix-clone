@@ -22,9 +22,9 @@ const SearchPage = () => {
 
   useEffect(() => {
     if (!userInfo) {
-      navigate("/signin?=redirect=/browse");
+      navigate("/signin");
     }
-  }, [userInfo, navigate]);
+  }, [userInfo]);
 
   useEffect(() => {
     const getGenres = async () => {

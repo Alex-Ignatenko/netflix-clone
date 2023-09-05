@@ -3,7 +3,6 @@ import axios from 'axios';
 import './SigninPage.scss'
 import { useState, useEffect, useContext } from "react";
 import { USER_SIGNIN } from '../context/reducerActions';
-import { toast } from'react-toastify';
 import { authContext } from '../context/authContext';
 
 const SigninPage = () => {
@@ -22,7 +21,9 @@ const SigninPage = () => {
   const  {userInfo, dispatch} = useContext(authContext);
 
   useEffect(() => {
-    userInfo && navigate(redirect); 
+    if(userInfo){
+     navigate(redirect); 
+    }
   },[navigate, redirect, userInfo]);
 
   const submitHandler = async (e) => {
@@ -34,16 +35,15 @@ const SigninPage = () => {
     }else {
       try {
         const {data} = await axios.post('/users/signin', {email, password});
-        dispatch({type: USER_SIGNIN,payload: data}); 
-        navigate(redirect); 
+        dispatch({type: USER_SIGNIN,payload: data});
+        setIsValid(true); 
+        navigate(redirect || '/browse');
       } catch (error) {
-        //toast.error(error.message);
         setErrorMessage("Invalid Credentials Entered");
-        setValidated(false);
+        setIsValid(false);
         e.stopPropagation();
       }
     }
-      setValidated(true);
   }
 
   
@@ -67,6 +67,8 @@ const SigninPage = () => {
             <div className="signin-card-footer">
               <p className='redirect-signup-p'>New to Netflix? <Link to="/"> Sign up</Link></p>
               <p className='captcha-p'>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+              <br/>
+              <p className='captcha-p'>This is a demo site. use admin@example.com pw: 12345 to log in.</p>
             </div>
           </div>
        </main>

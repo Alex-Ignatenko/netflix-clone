@@ -32,106 +32,97 @@ const SliderItem = ({ content , title }) => {
 
   return (
        <>
-        {content && 
-      (
-        <div
-        className={`slide-item-container`}
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => {
-          setIsHover(false);
-          setIsPlaying(false);
-        }}
-      >
-        <img
-          src={content.imgThumb}
-          className="details-img-1"
-          style={{ display: !isHover ? "block" : "none" }}
-        />
-        <div
-          className="container"
-          style={{ display: isHover ? "block" : "none" }}
+      {content && 
+        (
+          <div
+          className={`slide-item-container`}
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => {
+            setIsHover(false);
+            setIsPlaying(false);
+          }}
         >
-          <div className="player-or-img">
-            {!isPlaying ? (
-              <div className="img-container">
-                <img src={content.imgThumb} className="detials-img-2" />
-              </div>
-            ) : (
-              <div className="player-container">
-                <ReactPlayer
-                  url={content.movie}
-                  playing={isPlaying}
-                  height="100%"
-                  width="100%"
-                />
-              </div>
-            )}
-          </div>
-          <div className="detials">
-            <div className="detials-row1">
-              <div className="btn-col1">
-                <div className="icon-container">
-                  <span
-                    className="material-symbols-outlined btn-icon"
-                    onClick={() => {
-                      setIsPlaying(!isPlaying);
-                    }}
-                  >
-                    {!isPlaying ? "play_circle" : "stop_circle"}
-                  </span>
+          <img
+            src={content.imgThumb}
+            className="details-img-1"
+            style={{ display: !isHover ? "block" : "none" }}
+          />
+          <div
+            className="container"
+            style={{ display: isHover ? "block" : "none" }}
+          >
+            <div className="player-or-img">
+              {!isPlaying ? (
+                <div className="img-container">
+                  <img src={content.imgThumb} className="detials-img-2" />
                 </div>
-                {userList.find((c) => c._id === content._id) ? (
-                  <div className="icon-container">
-                    <span 
-                      className="material-symbols-outlined btn-icon"
-                      onClick={() =>changeUserList()}
-                      >
-                      do_not_disturb_on
-                    </span>
-                  </div>
-                ) : (
+              ) : (
+                <div className="player-container">
+                  <ReactPlayer
+                    url={content.movie}
+                    playing={isPlaying}
+                    height="100%"
+                    width="100%"
+                  />
+                </div>
+              )}
+            </div>
+            <div className="detials">
+              <div className="detials-row1">
+                <div className="btn-col1">
                   <div className="icon-container">
                     <span
                       className="material-symbols-outlined btn-icon"
-                      onClick={() =>changeUserList()}
+                      onClick={() => {
+                        setIsPlaying(!isPlaying);
+                      }}
                     >
-                    add_circle
+                      {!isPlaying ? "play_circle" : "stop_circle"}
                     </span>
                   </div>
+                  {userList && userList.find((c) => c._id === content._id) ? (
+                    <div className="icon-container">
+                      <span 
+                        className="material-symbols-outlined btn-icon"
+                        onClick={() =>changeUserList()}
+                        >
+                        do_not_disturb_on
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="icon-container">
+                      <span
+                        className="material-symbols-outlined btn-icon"
+                        onClick={() =>changeUserList()}
+                      >
+                      add_circle
+                      </span>
+                    </div>
 
-                )
-                }
-              </div>
-              <div className="btn-col2">
-                <div className="icon-container">
-                  <span
-                    className="material-symbols-outlined btn-icon"
-                    onClick={() => navigate(`/info/${content._id}`)}
-                  >
-                    info
-                  </span>
+                  )
+                  }
+                </div>
+                <div className="btn-col2">
+                  <div className="icon-container">
+                    <span
+                      className="material-symbols-outlined btn-icon"
+                      onClick={() => navigate(`/info/${content._id}`)}
+                    >
+                      info
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="detials-row2">
-                <p>{content.duration}</p>
-                <p>{content.year}</p>
-                <p className="age-span">+{content.limit}</p>
-                <p className="genre-span">{content.genre}</p>
-              {/* <div className="detials-row2-section-1">
-                <p>{content.duration}</p>
-                <p>{content.year}</p>
+              <div className="detials-row2">
+                  <p>{content.duration}</p>
+                  <p>{content.year}</p>
+                  <p className="age-span">+{content.limit}</p>
+                  <p className="genre-span">{content.genre}</p>
               </div>
-              <div className="detials-row2-section-2">
-                <p className="age-span">+{content.limit}</p>
-                <p className="genre-span">{content.genre}</p>
-              </div> */}
-
             </div>
           </div>
         </div>
-      </div>
-      )
+        )
     }
     </>
   );
