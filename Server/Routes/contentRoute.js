@@ -6,23 +6,18 @@ import { isAuth } from "../Services/authService.js";
 const contentRouter = express.Router();
 
 contentRouter.get('/',isAuth,expressAsyncHandler(async (req, res) => {
-      try {
-        const data = await Content.find();
-        res.status(200).json(data.reverse());
-      } catch (error) {
-        res.status(500).json(error);
-      }
-    })
-  );
+
+    const data = await Content.find();
+    res.status(200).json(data.reverse());
+
+  })
+);
 
 //get
 contentRouter.get('/get/:id',isAuth,expressAsyncHandler(async (req, res) => {
-      try {
+
         const content = await Content.findById(req.params.id);
         res.status(200).json(content);
-      } catch (error) {
-        res.status(500).json(error);
-      }
   })
 );
 
@@ -31,7 +26,7 @@ contentRouter.get('/getlist',isAuth,expressAsyncHandler(async (req, res) => {
   const type = req.query.type;
   const genre = req.query.genre;
   let contentList = [];
-  try {
+
     if (type === 'tvshows') {
       if (genre){
         contentList = await Content.aggregate([
@@ -56,9 +51,7 @@ contentRouter.get('/getlist',isAuth,expressAsyncHandler(async (req, res) => {
           contentList = await Content.aggregate([{ $sample: { size: 25 } }]);
     }
     res.status(200).json(contentList);
-  } catch (error) {
-    res.status(500).json(error);
-  }
+
 })
 );
 
@@ -66,7 +59,7 @@ contentRouter.get('/getlist',isAuth,expressAsyncHandler(async (req, res) => {
 contentRouter.get('/random',isAuth,expressAsyncHandler(async (req, res) => {
       const type = req.query.type;
       let content;
-      try {
+
         if (type === 'tvshows') {
           content = await Content.aggregate([
             { $match: { isSeries: true } },
@@ -81,10 +74,8 @@ contentRouter.get('/random',isAuth,expressAsyncHandler(async (req, res) => {
           content = await Content.aggregate([{ $sample: { size: 1 } }]);
         }
         res.status(200).json(content[0]);
-      } catch (error) {
-        res.status(500).json(error);
-      }
-    })
+
+  })
 );
 
 

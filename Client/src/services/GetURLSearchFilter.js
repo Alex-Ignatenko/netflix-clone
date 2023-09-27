@@ -15,8 +15,6 @@ export const GetURLSearchFilter = (searchFromURL, filter) => {
     filterQuery = "";
   }
 
-  //const filterOrder = filter.order || order;
-
   let link = "";
 
   if (!filterQuery  && !filterGenre) {

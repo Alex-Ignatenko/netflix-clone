@@ -22,7 +22,7 @@ searchRouter.get(
     const { options } = GetSearchFilter(query);
     console.log(options);
 
-    //Get products that fit the selected filtering and sorting options
+    //Get content that fit the selected filtering and sorting options
     const contents = await Content.find(options);
     const countContents = await Content.countDocuments(options);
 
@@ -34,12 +34,10 @@ searchRouter.get(
   "/genres",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    try {
+
       const data = await Genre.find();
       res.status(200).json(data.map((g) => g.genre));
-    } catch (error) {
-      res.status(500).json(error);
-    }
+
   })
 );
 
