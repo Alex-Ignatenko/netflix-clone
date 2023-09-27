@@ -10,8 +10,7 @@ const Searchbox = ({ showSearch, isToggleable }) => {
   const { search, pathname } = useLocation();
   const navigate = useNavigate();
 
-  if (isToggleable) {
-  }
+
   const toggleSearchbar = () => {
     setisSearchShown(!isSearchShown);
   };

@@ -26,6 +26,10 @@ app.use("/api/users" , userRouter)
 app.use("/api/content" , contentRouter)
 app.use("/api/search" , searchRouter)
 
+app.use((err,req, res, next) => {
+    res.status(500).send({ error: err.message})
+})
+
 mongoose.connect(process.env.MONGO_DB_URI).then(() => {
     app.listen(PORT);
     console.log(`Server running on port ${PORT}`);

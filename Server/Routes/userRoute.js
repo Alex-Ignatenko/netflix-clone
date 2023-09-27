@@ -50,7 +50,6 @@ userRouter.get(
   "/getuserlist",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    try {
       const data = await List.findOne({ name: req.query.name });
       let response = [];
       for (let i = 0; i < data.contents.length; i++) {
@@ -58,9 +57,6 @@ userRouter.get(
         response.push(c);
       }
       res.status(200).json(response);
-    } catch (error) {
-      res.status(500).json(error);
-    }
   })
 );
 
@@ -69,40 +65,26 @@ userRouter.post(
   isAuth,
   expressAsyncHandler(async (req, res) => {
 
-    try {
-
       let list = await List.findOne({
         name: req.user.username + "`s List",
       });
+
       if (list.contents.includes(req.params.id)) {
-
-        // console.log(req.params.id) 
-        // console.log("before remove: " + list.contents);
-
         await list.contents.remove(req.params.id);
-
-        // console.log("------------------------------------------------------")
-        // console.log("after remove: " + list.contents);
-
       } else {
         list.contents.push(req.params.id);
       }
 
-
       list.save();
-      // console.log("after save to db");
 
       let response = [];
       for (let i = 0; i < list.contents.length; i++) {
         let c = await Content.findById(list.contents[i]);
         response.push(c);
       }
+
       res.status(200).json(response);
       console.log("Payload sent")
-    } catch (error) {
-      res.status(500).json(error);
-      console.log("error happened: " + error.message);
-    }
   })
 );
 
